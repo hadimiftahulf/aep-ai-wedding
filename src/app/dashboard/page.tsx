@@ -3,7 +3,8 @@ import { formatDate } from "@/lib/utils";
 import { WhatsAppGenerator } from "@/components/sections/WhatsAppGenerator";
 import { PWAInstallButton } from "@/components/ui/PWAInstallButton";
 import { DeleteGuestbookButton } from "@/components/ui/DeleteGuestbookButton";
-import { DashboardGame } from "@/components/ui/DashboardGame";
+import { DashboardMascots } from "@/components/ui/DashboardMascots";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -34,38 +35,22 @@ export default async function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf8] font-body text-teal-950 selection:bg-gold-200">
-      {/* Top Accent Bar */}
-      <div className="h-1 bg-gradient-to-r from-teal-950 via-gold-500 to-teal-950" />
-      
-      <div className="max-w-[1400px] mx-auto px-4 py-8 lg:px-12 lg:py-14">
-        {/* Compact Modern Header */}
-        <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-10 border-b border-teal-900/5 pb-10">
-          <div className="flex items-center gap-4">
-            <div className="h-12 w-12 md:h-14 md:w-14 rounded-2xl bg-teal-950 flex items-center justify-center shadow-2xl rotate-3">
-               <span className="font-heading text-xl md:text-2xl text-gold-400 font-bold italic">A</span>
-            </div>
-            <div>
-              <h1 className="font-heading text-2xl md:text-4xl font-bold tracking-tight">
-                Control <span className="text-gold-600 italic font-medium">Center</span>
-              </h1>
-              <p className="text-[9px] uppercase tracking-[0.4em] text-teal-950/40 font-bold mt-1">Management Suite v2.1</p>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-2 bg-white p-1 rounded-xl shadow-sm border border-teal-900/5 w-full sm:w-auto overflow-x-auto">
-             <div className="px-4 py-2 bg-sage-50 rounded-lg flex flex-col items-center min-w-[80px]">
-               <span className="text-[8px] uppercase tracking-widest text-teal-950/40 font-bold">Views</span>
-               <span className="text-lg font-heading font-bold text-teal-950">{stats.views}</span>
-             </div>
-             <div className="px-4 py-2 bg-teal-950 rounded-lg flex flex-col items-center min-w-[80px] shadow-lg shadow-teal-900/10">
-               <span className="text-[8px] uppercase tracking-widest text-gold-300 font-bold">RSVPs</span>
-               <span className="text-lg font-heading font-bold text-white">{stats.totalRsvp}</span>
-             </div>
-          </div>
-        </header>
+    <div className="min-h-screen bg-[#fafaf8] font-body text-teal-950 selection:bg-gold-200 relative overflow-hidden">
+      {/* Premium Background Ornaments */}
+      <div className="absolute top-0 right-0 w-full h-[500px] pointer-events-none opacity-[0.03]">
+        <Image src="/images/luxury-floral.png" alt="" fill className="object-cover" />
+      </div>
+      <div className="absolute bottom-0 left-0 w-full h-[500px] pointer-events-none opacity-[0.03] rotate-180">
+        <Image src="/images/luxury-floral.png" alt="" fill className="object-cover" />
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+      {/* Top Accent Bar */}
+      <div className="h-1 bg-gradient-to-r from-teal-950 via-gold-500 to-teal-950 relative z-20" />
+      
+      <div className="max-w-[1400px] mx-auto px-4 py-8 lg:px-12 lg:py-14 relative z-10">
+        <DashboardMascots />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mt-10">
           {/* Main Table Content - Column Span 8 */}
           <div className="lg:col-span-8 space-y-6 lg:space-y-8">
             {/* Ultra Compact Stats Row */}
@@ -207,7 +192,6 @@ export default async function DashboardPage() {
           </div>
 
           <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-8">
-            <DashboardGame />
             <WhatsAppGenerator />
             
             <div className="bg-[#121b18] rounded-[1.5rem] p-6 lg:p-8 text-white shadow-2xl relative overflow-hidden group">
