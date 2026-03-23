@@ -16,11 +16,12 @@ export async function trackVisit() {
 
     const userAgent = headersList.get("user-agent") || "unknown";
 
+    // Ignore local/internal IPs
     if (ip === "::1" || ip === "127.0.0.1" || ip.startsWith("192.168.") || ip.startsWith("10.")) return;
 
     await prisma.visitor.upsert({
       where: { ip },
-      update: {},
+      update: { visitedAt: new Date() }, // Crucial: Update timestamp on returning visit
       create: {
         ip,
         userAgent,
@@ -33,14 +34,16 @@ export async function trackVisit() {
 
 export async function getVisitorHistory() {
   try {
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    sevenDaysAgo.setHours(0, 0, 0, 0);
+    // Use Indonesian timezone (GMT+7) for consistent daily buckets
+    // We'll calculate the start of the 7-day window
+    const startOfWindow = new Date();
+    startOfWindow.setDate(startOfWindow.getDate() - 6);
+    startOfWindow.setHours(0, 0, 0, 0);
 
     const visitors = await prisma.visitor.findMany({
       where: {
         visitedAt: {
-          gte: sevenDaysAgo,
+          gte: startOfWindow,
         },
       },
       select: {
@@ -52,14 +55,18 @@ export async function getVisitorHistory() {
     });
 
     const history: Record<string, number> = {};
+    
+    // Initialize the last 7 days (including today)
     for (let i = 0; i < 7; i++) {
-      const date = new Date();
-      date.setDate(date.getDate() - i);
-      const dateStr = date.toISOString().split("T")[0];
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      // We use a date string that represents the day in local terms for the grouping
+      // but for DB equality, we stick to YYYY-MM-DD
+      const dateStr = d.toISOString().split("T")[0];
       history[dateStr] = 0;
     }
 
-    visitors.forEach((v: { visitedAt: Date }) => {
+    visitors.forEach((v) => {
       const dateStr = v.visitedAt.toISOString().split("T")[0];
       if (history[dateStr] !== undefined) {
         history[dateStr]++;
