@@ -40,7 +40,7 @@ Silakan masuk ke Dashboard Admin untuk detail lebih lanjut:
 🔗 ${dashboardUrl} 💍✨`;
 
   try {
-    await fetch("https://api.fonnte.com/send", {
+    const response = await fetch("https://api.fonnte.com/send", {
       method: "POST",
       headers: {
         Authorization: token,
@@ -50,8 +50,12 @@ Silakan masuk ke Dashboard Admin untuk detail lebih lanjut:
         message: waMessage,
       }),
     });
+    
+    const data = await response.json();
+    return data;
   } catch (err) {
     console.error("Fonnte Error:", err);
+    return { status: false, reason: "Fetch failed" };
   }
 }
 
@@ -73,8 +77,9 @@ export async function submitRsvp(formData: FormData) {
       },
     });
 
-    // Send WhatsApp Notification async
-    sendWhatsAppNotification(name, message, attendance).catch(console.error);
+    // Send WhatsApp Notification (Await for reliability in serverless)
+    const result = await sendWhatsAppNotification(name, message, attendance);
+    console.log("Notification Result:", result);
 
     revalidatePath("/");
     return { success: true };
