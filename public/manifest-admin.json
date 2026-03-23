@@ -1,0 +1,21 @@
+{
+  "name": "Aep Wedding Admin",
+  "short_name": "Aep Admin",
+  "description": "Admin Control Center for Aep & Fulan Wedding",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#121b18",
+  "theme_color": "#121b18",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/images/couple-chibi.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

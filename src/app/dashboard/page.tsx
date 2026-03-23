@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/utils";
 import { WhatsAppGenerator } from "@/components/sections/WhatsAppGenerator";
+import { PWAInstallButton } from "@/components/ui/PWAInstallButton";
 
 export const dynamic = "force-dynamic";
 
@@ -200,6 +201,11 @@ export default async function DashboardPage() {
             
             <div className="bg-[#121b18] rounded-[1.5rem] p-6 lg:p-8 text-white shadow-2xl relative overflow-hidden group">
                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/10 rounded-full -mr-16 -mt-16 blur-3xl transition-all group-hover:bg-gold-400/20" />
+               
+               <div className="mb-8">
+                  <PWAInstallButton />
+               </div>
+
                <div className="flex items-center gap-2 mb-5 text-gold-400">
                   <svg className="w-5 h-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   <h4 className="font-heading text-lg font-bold tracking-tight">System Intel</h4>
