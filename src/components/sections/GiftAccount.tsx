@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SectionWrapper, fadeUpVariant } from "@/components/ui/SectionWrapper";
 import { weddingData } from "@/data/wedding";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function GiftAccount() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -82,7 +83,7 @@ export function GiftAccount() {
               {/* QR Code */}
               <div className="flex flex-col items-center mt-6 pt-4 border-t border-teal-800/5">
                 <p className="font-body text-[10px] text-teal-800/30 uppercase tracking-[0.15em] mb-3 font-bold">Scan QR Code</p>
-                <img 
+                <Image 
                   src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(bank.account)}&bgcolor=FCFDFD&color=1A4441&margin=8`}
                   alt={`QR ${bank.name}`}
                   width={100}
