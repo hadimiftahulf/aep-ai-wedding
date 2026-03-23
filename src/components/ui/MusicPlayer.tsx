@@ -6,12 +6,15 @@ export function MusicPlayer({ isPlaying: forcePlay }: { isPlaying?: boolean }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  const hasPlayed = useRef(false);
+  
   useEffect(() => {
-    if (forcePlay && audioRef.current && !isPlaying) {
+    if (forcePlay && !hasPlayed.current && audioRef.current) {
       audioRef.current.play().catch(console.error);
       setIsPlaying(true);
+      hasPlayed.current = true;
     }
-  }, [forcePlay, isPlaying]);
+  }, [forcePlay]);
 
   const togglePlay = () => {
     if (audioRef.current) {
