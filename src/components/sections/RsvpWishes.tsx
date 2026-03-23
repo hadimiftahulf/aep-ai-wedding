@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { SectionWrapper, fadeUpVariant } from "@/components/ui/SectionWrapper";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -18,6 +19,9 @@ export function RsvpWishes() {
   const [messages, setMessages] = useState<GuestbookEntry[]>([]);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+  
+  const searchParams = useSearchParams();
+  const guestName = searchParams.get("to") || "saffteen";
 
   useEffect(() => {
     fetchMessages();
@@ -70,8 +74,9 @@ export function RsvpWishes() {
                   id="name" 
                   name="name" 
                   required 
-                  className="w-full px-5 py-3 rounded-xl border border-teal-800/20 bg-white/50 text-teal-900 focus:ring-1 focus:ring-teal-800 focus:border-teal-800 outline-none transition-all placeholder:text-teal-900/30 font-body text-sm"
-                  placeholder="Tuliskan nama Anda"
+                  readOnly
+                  defaultValue={guestName}
+                  className="w-full px-5 py-3 rounded-xl border border-teal-800/20 bg-teal-800/5 text-teal-950/70 focus:outline-none transition-all font-body text-sm cursor-not-allowed"
                 />
               </div>
               
