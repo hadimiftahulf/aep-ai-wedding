@@ -157,7 +157,7 @@ export default async function DashboardPage() {
                             </div>
                           </td>
                           <td className="p-3 px-6 align-middle text-right">
-                             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                             <div className="transition-opacity">
                                <DeleteGuestbookButton id={guest.id} />
                              </div>
                           </td>
