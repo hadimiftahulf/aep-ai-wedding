@@ -4,6 +4,7 @@ import { WhatsAppGenerator } from "@/components/sections/WhatsAppGenerator";
 import { PWAInstallButton } from "@/components/ui/PWAInstallButton";
 import { DeleteGuestbookButton } from "@/components/ui/DeleteGuestbookButton";
 import { DashboardMascots } from "@/components/ui/DashboardMascots";
+import { GameModalController } from "@/components/ui/GameModalController";
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";
@@ -35,57 +36,57 @@ export default async function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf8] font-body text-teal-950 selection:bg-gold-200 relative overflow-hidden">
+    <div className="min-h-screen bg-[#fafaf8] font-body text-teal-950 selection:bg-gold-200 relative overflow-hidden pb-12">
       {/* Premium Background Ornaments */}
-      <div className="absolute top-0 right-0 w-full h-[500px] pointer-events-none opacity-[0.03]">
+      <div className="absolute top-0 right-0 w-full h-[600px] pointer-events-none opacity-[0.04]">
         <Image src="/images/luxury-floral.png" alt="" fill className="object-cover" />
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-[500px] pointer-events-none opacity-[0.03] rotate-180">
+      <div className="absolute bottom-0 left-0 w-full h-[600px] pointer-events-none opacity-[0.04] rotate-180">
         <Image src="/images/luxury-floral.png" alt="" fill className="object-cover" />
       </div>
 
       {/* Top Accent Bar */}
       <div className="h-1 bg-gradient-to-r from-teal-950 via-gold-500 to-teal-950 relative z-20" />
       
-      <div className="max-w-[1400px] mx-auto px-4 py-8 lg:px-12 lg:py-14 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 py-8 lg:px-10 lg:py-12 relative z-10">
         <DashboardMascots />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mt-10">
-          {/* Main Table Content - Column Span 8 */}
-          <div className="lg:col-span-8 space-y-6 lg:space-y-8">
-            {/* Ultra Compact Stats Row */}
-            <div className="grid grid-cols-3 gap-2 lg:gap-4">
-              <div className="bg-white rounded-[1rem] lg:rounded-[1.25rem] p-4 lg:p-5 border border-teal-900/5 shadow-sm group hover:scale-[1.02] transition-transform cursor-default">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[8px] lg:text-[9px] uppercase tracking-widest text-teal-950/40 font-bold">Confirmed</span>
-                  <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl lg:text-4xl font-heading font-bold text-green-600">{stats.attending}</span>
-                  <span className="text-[9px] text-teal-950/30 uppercase font-bold tracking-tighter">Guest</span>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mt-8">
+          <div className="lg:col-span-8 space-y-8">
+            {/* Unified Stats Row */}
+            {/* Unified Stats Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
+                 <div className="flex items-center justify-between mb-2">
+                   <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Confirmed</p>
+                   <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+                 </div>
+                 <div className="flex items-baseline gap-1">
+                   <span className="text-3xl font-heading font-black text-teal-950 leading-none">{stats.attending}</span>
+                   <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+                 </div>
               </div>
 
-              <div className="bg-white rounded-[1rem] lg:rounded-[1.25rem] p-4 lg:p-5 border border-teal-900/5 shadow-sm group hover:scale-[1.02] transition-transform cursor-default">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[8px] lg:text-[9px] uppercase tracking-widest text-teal-950/40 font-bold">Unable</span>
-                  <div className="h-2 w-2 rounded-full bg-red-400" />
-                </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl lg:text-4xl font-heading font-bold text-red-500">{stats.notAttending}</span>
-                  <span className="text-[9px] text-teal-950/30 uppercase font-bold tracking-tighter">Guest</span>
-                </div>
+              <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
+                 <div className="flex items-center justify-between mb-2">
+                   <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Unable</p>
+                   <span className="h-1.5 w-1.5 rounded-full bg-red-400 opacity-60" />
+                 </div>
+                 <div className="flex items-baseline gap-1">
+                   <span className="text-3xl font-heading font-black text-gold-600 leading-none">{stats.notAttending}</span>
+                   <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+                 </div>
               </div>
 
-              <div className="bg-white rounded-[1rem] lg:rounded-[1.25rem] p-4 lg:p-5 border border-teal-900/5 shadow-sm group hover:scale-[1.02] transition-transform cursor-default">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[8px] lg:text-[9px] uppercase tracking-widest text-teal-950/40 font-bold">Pending</span>
-                  <div className="h-2 w-2 rounded-full bg-orange-300" />
-                </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl lg:text-4xl font-heading font-bold text-orange-400">{stats.tentative}</span>
-                  <span className="text-[9px] text-teal-950/30 uppercase font-bold tracking-tighter">Guest</span>
-                </div>
+              <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
+                 <div className="flex items-center justify-between mb-2">
+                   <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Pending</p>
+                   <span className="h-1.5 w-1.5 rounded-full bg-gold-400 opacity-60" />
+                 </div>
+                 <div className="flex items-baseline gap-1">
+                   <span className="text-3xl font-heading font-black text-teal-950/60 leading-none">{stats.tentative}</span>
+                   <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+                 </div>
               </div>
             </div>
 
@@ -191,7 +192,8 @@ export default async function DashboardPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-8">
+          <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-8">
+            <GameModalController />
             <WhatsAppGenerator />
             
             <div className="bg-[#121b18] rounded-[1.5rem] p-6 lg:p-8 text-white shadow-2xl relative overflow-hidden group">
