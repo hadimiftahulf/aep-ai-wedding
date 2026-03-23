@@ -6,7 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Guestbook {
@@ -15,4 +17,11 @@ model Guestbook {
   message    String
   attendance String   // "hadir", "tidak_hadir", "ragu"
   createdAt  DateTime @default(now())
+}
+
+model Visitor {
+  id        String   @id @default(uuid())
+  ip        String   @unique
+  userAgent String?
+  visitedAt DateTime @default(now())
 }

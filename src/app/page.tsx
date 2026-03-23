@@ -1,5 +1,5 @@
 "use client";
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { HeroCover } from "@/components/sections/HeroCover";
 import { BismillahVerse } from "@/components/sections/BismillahVerse";
@@ -13,6 +13,7 @@ import { MusicPlayer } from "@/components/ui/MusicPlayer";
 import { FallingPetals } from "@/components/ui/FallingPetals";
 import { ConfettiBurst } from "@/components/ui/ConfettiBurst";
 import { FloatingMascot } from "@/components/ui/FloatingMascot";
+import { trackVisit } from "@/app/actions/visitor";
 
 function HomeContent() {
   const [isOpened, setIsOpened] = useState(false);
@@ -24,6 +25,11 @@ function HomeContent() {
     setIsOpened(true);
     setShowConfetti(true);
   };
+
+  useEffect(() => {
+    // Track unique visitor automatically on load
+    trackVisit();
+  }, []);
 
   return (
     <main className="min-h-screen relative w-full overflow-x-hidden bg-cream">
