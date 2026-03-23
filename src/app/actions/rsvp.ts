@@ -12,18 +12,21 @@ async function sendWhatsAppNotification(name: string, message: string, attendanc
     weddingData.couple.bride.phone,
   ].filter(Boolean).join(",");
 
-  const statusEmoji = attendance === "hadir" ? "✅ HADIR" : attendance === "tidak_hadir" ? "❌ TIDAK HADIR" : "⏳ RAGU";
+  const statusEmoji = attendance === "hadir" ? "✅ Konfirmasi: HADIR" : attendance === "tidak_hadir" ? "❌ Konfirmasi: BERHALANGAN" : "⏳ Konfirmasi: MASIH RAGU";
   
-  const waMessage = `*Notifikasi RSVP Baru!* 💌
+  const dashboardUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://' + process.env.VERCEL_URL}/dashboard`;
 
-*Nama:* ${name}
+  const waMessage = `*Alhamdulillah, ada kiriman Doa & RSVP baru!* 💌✨
+
+*Dari:* ${name}
 *Status:* ${statusEmoji}
 
-*Pesan:*
+*Pesan/Harapan:*
 "${message}"
 
 ---
-_Cek dashboard untuk detail lebih lanjut._ 💍✨`;
+Terima kasih. Silakan masuk ke Dashboard Admin untuk melihat detail atau mengelola pesan:
+🔗 ${dashboardUrl} 💍✨`;
 
   try {
     await fetch("https://api.fonnte.com/send", {
