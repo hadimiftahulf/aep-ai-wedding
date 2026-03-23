@@ -231,7 +231,10 @@ export default async function DashboardPage() {
       
       <footer className="py-12 border-t border-teal-900/5 text-center mt-12 bg-white/50">
         <p className="font-heading text-lg font-bold tracking-tight text-teal-950">AEP-WEDDING <span className="text-gold-600 italic">Admin Suite</span></p>
-        <p className="text-[8px] tracking-[0.6em] text-teal-950/30 mt-2 font-bold uppercase transition-all hover:tracking-[0.8em] cursor-default">Digital Hospitality Perfection</p>
+        <p className="text-[8px] tracking-[0.6em] text-teal-950/30 mt-2 font-bold uppercase transition-all hover:tracking-[0.8em] cursor-default mb-4">Digital Hospitality Perfection</p>
+        <p className="text-[10px] tracking-[0.2em] text-teal-950/20 font-body uppercase transition-colors">
+          Crafted Elegantly by <a href="https://wa.me/6289656012756" target="_blank" rel="noopener noreferrer" className="hover:text-gold-600 transition-colors font-bold">Saffteen</a>
+        </p>
       </footer>
     </div>
   );

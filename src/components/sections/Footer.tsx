@@ -70,7 +70,7 @@ export function Footer() {
           viewport={{ once: true }}
           className="text-[10px] tracking-[0.2em] text-white/30 font-body uppercase"
         >
-          Crafted Elegantly by Saffteen
+          Crafted Elegantly by <a href="https://wa.me/6289656012756" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors">Saffteen</a>
         </motion.p>
       </motion.div>
     </footer>
