@@ -5,12 +5,14 @@ export const weddingData = {
       shortName: "Aep",
       parents: "Putra ke-4 dari Bapak Suhala & Ibu Esih",
       instagram: "@aepaef",
+      phone: "6282214074959",
     },
     bride: {
       name: "Ai",
       shortName: "Ai",
       parents: "Putri dari Bpk. Banan & Ibu Fulanah",
       instagram: "@ai",
+      phone: "6289656012756",
     },
   },
   events: {

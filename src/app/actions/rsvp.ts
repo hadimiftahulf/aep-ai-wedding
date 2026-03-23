@@ -1,6 +1,45 @@
 "use server";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { weddingData } from "@/data/wedding";
+
+async function sendWhatsAppNotification(name: string, message: string, attendance: string) {
+  const token = process.env.FONNTE_TOKEN;
+  if (!token) return;
+
+  const targets = [
+    weddingData.couple.groom.phone,
+    weddingData.couple.bride.phone,
+  ].filter(Boolean).join(",");
+
+  const statusEmoji = attendance === "hadir" ? "✅ HADIR" : attendance === "tidak_hadir" ? "❌ TIDAK HADIR" : "⏳ RAGU";
+  
+  const waMessage = `*Notifikasi RSVP Baru!* 💌
+
+*Nama:* ${name}
+*Status:* ${statusEmoji}
+
+*Pesan:*
+"${message}"
+
+---
+_Cek dashboard untuk detail lebih lanjut._ 💍✨`;
+
+  try {
+    await fetch("https://api.fonnte.com/send", {
+      method: "POST",
+      headers: {
+        Authorization: token,
+      },
+      body: new URLSearchParams({
+        target: targets,
+        message: waMessage,
+      }),
+    });
+  } catch (err) {
+    console.error("Fonnte Error:", err);
+  }
+}
 
 export async function submitRsvp(formData: FormData) {
   try {
@@ -19,6 +58,9 @@ export async function submitRsvp(formData: FormData) {
         attendance,
       },
     });
+
+    // Send WhatsApp Notification async
+    sendWhatsAppNotification(name, message, attendance).catch(console.error);
 
     revalidatePath("/");
     return { success: true };
