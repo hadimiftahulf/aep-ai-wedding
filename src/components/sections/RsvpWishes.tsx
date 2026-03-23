@@ -47,15 +47,18 @@ export function RsvpWishes() {
   };
 
   return (
-    <SectionWrapper withOrnament className="py-32 text-center max-w-6xl mx-auto w-full bg-sage-50">
-      <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center mb-20 relative z-10">
+    <SectionWrapper withOrnament className="py-20 md:py-32 text-center max-w-6xl mx-auto w-full bg-sage-50">
+      <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center mb-12 md:mb-20 relative z-10 px-4">
         <div className="w-1.5 h-1.5 rounded-full bg-teal-800 mb-6" />
         <h3 className="font-heading text-4xl md:text-5xl text-teal-900 font-bold tracking-wide uppercase">
           Kehadiran & Doa
         </h3>
+        <p className="max-w-xl mx-auto text-teal-800/60 mt-4 text-sm font-body italic">
+          Beri kami kabar bahagia kehadiran Anda serta untaian doa terbaik.
+        </p>
       </motion.div>
 
-      <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 text-left px-4 relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 text-left px-6 relative z-10 max-w-5xl mx-auto">
         {/* Form */}
         <motion.div variants={fadeUpVariant} className="self-start">
           <Card glass className="shadow-xl">
@@ -112,12 +115,12 @@ export function RsvpWishes() {
         </motion.div>
 
         {/* Messages List */}
-        <motion.div variants={fadeUpVariant} className="flex flex-col relative bg-white/80 p-6 md:p-10 rounded-3xl border border-sage-200 shadow-sm backdrop-blur-md">
-          <div className="flex items-center justify-between mb-8 pb-6 border-b border-teal-800/10">
-             <h4 className="font-heading text-3xl text-gold-600 font-medium italic">
+        <motion.div variants={fadeUpVariant} className="flex flex-col relative bg-white/80 p-6 md:p-8 rounded-[2.5rem] border border-sage-200 shadow-xl backdrop-blur-md">
+          <div className="flex items-center justify-between mb-8 pb-5 border-b border-teal-800/10">
+             <h4 className="font-heading text-2xl md:text-3xl text-gold-600 font-medium italic">
                Ucapan Masuk
              </h4>
-             <span className="text-teal-800/50 font-body text-xs uppercase tracking-[0.2em] font-bold">
+             <span className="text-teal-800/40 font-body text-[10px] uppercase tracking-[0.2em] font-bold">
                {messages.length} Pesan
              </span>
           </div>
@@ -137,18 +140,22 @@ export function RsvpWishes() {
                     transition={{ duration: 0.5 }}
                     className="group relative bg-sage-50/50 p-6 rounded-2xl border border-teal-800/5 hover:bg-sage-100/50 transition-colors duration-500"
                   >
-                    <div className="flex items-start gap-5 mb-3">
-                      <div className="h-10 w-10 bg-white border border-gold-300 text-teal-800 rounded-full flex items-center justify-center font-heading font-medium text-lg shadow-sm">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="h-10 w-10 bg-teal-950 text-gold-400 rounded-xl flex items-center justify-center font-heading font-black text-lg shadow-lg">
                         {msg.name.charAt(0).toUpperCase()}
                       </div>
-                      <div>
-                        <p className="font-heading text-lg text-teal-900 font-medium tracking-wide">{msg.name}</p>
-                        <p className="text-[10px] text-teal-800/50 font-body uppercase tracking-[0.2em] mt-1 font-bold">
+                      <div className="flex-1">
+                        <p className="font-heading text-base text-teal-950 font-bold tracking-tight">{msg.name}</p>
+                        <span className={`inline-block text-[8px] px-2 py-0.5 rounded-md uppercase tracking-wider font-bold mt-0.5 ${
+                          msg.attendance === 'hadir' ? 'bg-green-100 text-green-700' : 
+                          msg.attendance === 'tidak_hadir' ? 'bg-red-50 text-red-600' : 
+                          'bg-orange-50 text-orange-600'
+                        }`}>
                           {msg.attendance === 'hadir' ? 'Akan Hadir' : msg.attendance === 'tidak_hadir' ? 'Tidak Hadir' : 'Tentatif'}
-                        </p>
+                        </span>
                       </div>
                     </div>
-                    <p className="text-teal-900/70 text-sm leading-relaxed whitespace-pre-line font-body italic pl-14">
+                    <p className="text-teal-950/70 text-sm leading-relaxed whitespace-pre-line font-body italic pl-2 border-l-2 border-gold-400/20">
                       &quot;{msg.message}&quot;
                     </p>
                   </motion.div>

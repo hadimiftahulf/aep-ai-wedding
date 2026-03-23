@@ -129,7 +129,7 @@ function PortraitCard({
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.04, boxShadow: "0 25px 60px -15px rgba(0,0,0,0.15)" }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="w-56 h-72 md:w-64 md:h-[22rem] rounded-[2rem] overflow-hidden border border-sage-200 shadow-xl bg-white mb-6 relative cursor-pointer group select-none"
+        className="w-48 h-64 md:w-64 md:h-[22rem] rounded-[2rem] overflow-hidden border border-sage-200 shadow-xl bg-white mb-6 relative cursor-pointer group select-none"
       >
         {/* Gold inner border */}
         <div className="absolute top-2 bottom-2 left-2 right-2 border border-gold-300 pointer-events-none rounded-[1.5rem] z-20" />
@@ -214,7 +214,7 @@ function PortraitCard({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: delay + 0.3, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
         viewport={{ once: true }}
-        className="font-heading text-3xl text-teal-900 font-bold mb-3 tracking-wide"
+        className="font-heading text-2xl md:text-3xl text-teal-900 font-bold mb-3 tracking-wide"
       >
         {name}
       </motion.h4>
@@ -233,8 +233,8 @@ function PortraitCard({
 
 export function CoupleProfile() {
   return (
-    <SectionWrapper withOrnament className="text-center py-32 bg-paper">
-      <motion.div variants={fadeUpVariant} className="flex flex-col items-center mb-24 relative z-10">
+    <SectionWrapper withOrnament className="text-center py-16 md:py-32 bg-paper">
+      <motion.div variants={fadeUpVariant} className="flex flex-col items-center mb-16 md:mb-24 relative z-10">
         <p className="text-xs md:text-sm font-body uppercase tracking-[0.3em] text-gold-500 mb-6 font-medium">Sang Mempelai</p>
         <h3 className="font-script text-5xl md:text-7xl text-teal-800 font-medium tracking-wide">Ikatan Suci</h3>
       </motion.div>
@@ -252,7 +252,7 @@ export function CoupleProfile() {
           <motion.span
             animate={{ scale: [1, 1.08, 1], opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="font-script text-7xl md:text-8xl text-gold-500 drop-shadow-sm"
+            className="font-script text-5xl md:text-8xl text-gold-500 drop-shadow-sm"
           >
             &amp;
           </motion.span>

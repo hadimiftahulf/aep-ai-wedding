@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export function Countdown() {
   return (
-    <SectionWrapper withOrnament className="py-40 text-center mx-4 my-24 w-[calc(100%-2rem)] max-w-4xl rounded-3xl bg-white relative overflow-hidden shadow-xl border border-sage-200">
+    <SectionWrapper withOrnament className="py-16 md:py-32 text-center mx-4 my-16 md:my-24 max-w-4xl rounded-3xl bg-white relative overflow-hidden shadow-xl border border-sage-200">
       
       {/* Decorative inner border simulating premium cardstock */}
       <div className="absolute top-3 bottom-3 left-3 right-3 border border-gold-400/30 rounded-2xl pointer-events-none" />

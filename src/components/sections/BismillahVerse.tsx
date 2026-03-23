@@ -17,8 +17,8 @@ export function BismillahVerse() {
         </div>
       </motion.div>
       
-      <motion.div variants={fadeUpVariant} className="max-w-3xl mx-auto space-y-10 px-6 relative z-10">
-        <p className="text-3xl md:text-5xl lg:text-5xl leading-relaxed text-teal-800 font-medium" dir="rtl">
+      <motion.div variants={fadeUpVariant} className="max-w-3xl mx-auto space-y-8 md:space-y-10 px-6 relative z-10">
+        <p className="text-2xl md:text-5xl lg:text-5xl leading-relaxed text-teal-800 font-medium" dir="rtl">
           {weddingData.quranVerse.arabic}
         </p>
         

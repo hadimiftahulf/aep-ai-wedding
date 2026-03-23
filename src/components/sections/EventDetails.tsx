@@ -9,15 +9,15 @@ import { AddToCalendar } from "@/components/ui/AddToCalendar";
 
 export function EventDetails() {
   return (
-    <SectionWrapper withOrnament className="py-32 text-center bg-sage-50">
-      <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center mb-24 relative z-10">
+    <SectionWrapper withOrnament className="py-16 md:py-32 text-center bg-sage-50">
+      <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center mb-12 md:mb-24 relative z-10">
          <div className="w-1.5 h-1.5 rounded-full bg-teal-800 mb-6" />
         <h3 className="font-heading text-4xl md:text-5xl text-teal-900 font-bold tracking-wide uppercase">
           Rangkaian Acara
         </h3>
       </motion.div>
 
-      <div className="flex flex-col md:flex-row justify-center gap-10 px-4 max-w-6xl mx-auto relative z-10">
+      <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-10 px-4 max-w-6xl mx-auto relative z-10">
         <motion.div variants={fadeUpVariant} className="flex-1">
           <Card glass className="h-full flex flex-col hover:-translate-y-2 transition-transform duration-700 hover:shadow-2xl">
              <div className="mb-10 text-center">
