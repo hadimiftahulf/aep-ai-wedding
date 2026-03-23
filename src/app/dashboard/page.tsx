@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/utils";
 import { WhatsAppGenerator } from "@/components/sections/WhatsAppGenerator";
 import { PWAInstallButton } from "@/components/ui/PWAInstallButton";
+import { DeleteGuestbookButton } from "@/components/ui/DeleteGuestbookButton";
 
 export const dynamic = "force-dynamic";
 
@@ -114,10 +115,11 @@ export default async function DashboardPage() {
                 <table className="w-full text-left border-collapse min-w-[700px]">
                   <thead className="sticky top-0 bg-white/95 backdrop-blur-md z-10">
                     <tr className="border-b border-teal-900/5">
-                      <th className="p-4 px-8 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold">Guest</th>
-                      <th className="p-4 px-8 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold text-center">RSVP</th>
-                      <th className="p-4 px-8 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold">Message</th>
-                      <th className="p-4 px-8 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold text-right">Time</th>
+                      <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold">Guest</th>
+                      <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold text-center">RSVP</th>
+                      <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold">Message</th>
+                      <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold text-right">Time</th>
+                      <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold text-right">Action</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-teal-900/5">
@@ -127,17 +129,17 @@ export default async function DashboardPage() {
                       </tr>
                     ) : (
                       guests.map((guest: Guest) => (
-                        <tr key={guest.id} className="hover:bg-sage-50/20 transition-all group">
-                          <td className="p-5 px-8 align-middle">
+                        <tr key={guest.id} className="hover:bg-sage-50/30 transition-all group">
+                          <td className="p-3 px-6 align-middle">
                             <div className="flex items-center gap-3">
-                              <div className="h-8 w-8 bg-teal-950 rounded-lg flex items-center justify-center text-gold-400 font-heading font-bold text-xs shadow-lg shadow-teal-950/10 transition-transform group-hover:-rotate-3">
-                                {guest.name.charAt(0)}
+                              <div className="h-7 w-7 bg-teal-950 rounded-lg flex items-center justify-center text-gold-400 font-heading font-black text-[10px] shadow-lg shadow-teal-950/10 transition-transform group-hover:-rotate-3">
+                                {guest.name.charAt(0).toUpperCase()}
                               </div>
-                              <span className="text-sm font-bold tracking-tight text-teal-950 group-hover:text-gold-600 transition-colors uppercase whitespace-nowrap">{guest.name}</span>
+                              <span className="text-[13px] font-bold tracking-tight text-teal-950 group-hover:text-gold-600 transition-colors uppercase whitespace-nowrap">{guest.name}</span>
                             </div>
                           </td>
-                          <td className="p-5 px-8 text-center align-middle">
-                            <span className={`inline-flex px-3 py-1 rounded-lg text-[9px] font-bold uppercase tracking-widest border border-transparent shadow-sm ${
+                          <td className="p-3 px-6 text-center align-middle">
+                            <span className={`inline-flex px-2 py-0.5 rounded-md text-[8px] font-bold uppercase tracking-widest border border-transparent shadow-sm ${
                               guest.attendance === "hadir" ? "bg-green-100/50 text-green-700 font-bold" :
                               guest.attendance === "tidak_hadir" ? "bg-red-100/50 text-red-600 font-bold" :
                               "bg-orange-100/50 text-orange-600 font-bold"
@@ -145,14 +147,19 @@ export default async function DashboardPage() {
                               {guest.attendance.replace("_", " ")}
                             </span>
                           </td>
-                          <td className="p-5 px-8 align-middle text-xs text-teal-950/70 italic leading-relaxed max-w-sm">
+                          <td className="p-3 px-6 align-middle text-[12px] text-teal-950/60 italic leading-snug max-w-sm">
                              {guest.message}
                           </td>
-                          <td className="p-5 px-8 align-middle text-right">
+                          <td className="p-3 px-6 align-middle text-right">
                             <div className="flex flex-col text-[10px] text-teal-950/30 font-bold uppercase tracking-widest">
                               <span>{formatDate(guest.createdAt.toISOString()).split(" ")[0]}</span>
-                              <span className="mt-0.5">{guest.createdAt.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
+                              <span className="mt-0.5 opacity-50">{guest.createdAt.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
                             </div>
+                          </td>
+                          <td className="p-3 px-6 align-middle text-right">
+                             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                               <DeleteGuestbookButton id={guest.id} />
+                             </div>
                           </td>
                         </tr>
                       ))
@@ -167,28 +174,31 @@ export default async function DashboardPage() {
                    <div className="p-12 text-center text-teal-950/20 italic text-sm">No entries yet.</div>
                  ) : (
                    guests.map((guest: Guest) => (
-                     <div key={guest.id} className="p-5 hover:bg-sage-50/20 transition-colors">
+                      <div key={guest.id} className="p-4 hover:bg-sage-50/20 transition-colors group">
                         <div className="flex items-center justify-between mb-3">
                            <div className="flex items-center gap-2">
-                              <div className="h-7 w-7 bg-teal-950 rounded-lg flex items-center justify-center text-gold-400 font-heading font-bold text-[10px] shadow-md">
-                                {guest.name.charAt(0)}
+                              <div className="h-6 w-6 bg-teal-950 rounded-lg flex items-center justify-center text-gold-400 font-heading font-black text-[9px] shadow-sm">
+                                {guest.name.charAt(0).toUpperCase()}
                               </div>
-                              <span className="text-xs font-bold tracking-tight text-teal-950 uppercase">{guest.name}</span>
+                              <span className="text-[11px] font-bold tracking-tight text-teal-950 uppercase">{guest.name}</span>
                            </div>
-                           <span className={`px-2 py-0.5 rounded-lg text-[8px] font-bold uppercase tracking-widest ${
-                              guest.attendance === "hadir" ? "bg-green-100/50 text-green-700" :
-                              guest.attendance === "tidak_hadir" ? "bg-red-100/50 text-red-600" :
-                              "bg-orange-100/50 text-orange-600"
-                            }`}>
-                              {guest.attendance.replace("_", " ")}
-                           </span>
+                           <div className="flex items-center gap-3">
+                             <span className={`px-1.5 py-0.5 rounded-md text-[7px] font-bold uppercase tracking-widest ${
+                                guest.attendance === "hadir" ? "bg-green-100/50 text-green-700" :
+                                guest.attendance === "tidak_hadir" ? "bg-red-100/50 text-red-600" :
+                                "bg-orange-100/50 text-orange-600"
+                              }`}>
+                                {guest.attendance.replace("_", " ")}
+                             </span>
+                             <DeleteGuestbookButton id={guest.id} />
+                           </div>
                         </div>
                         <p className="text-[11px] text-teal-950/70 italic leading-relaxed mb-3">&quot;{guest.message}&quot;</p>
-                        <div className="flex justify-between items-center text-[9px] text-teal-950/30 font-bold uppercase tracking-widest">
+                        <div className="flex justify-between items-center text-[8px] text-teal-950/30 font-bold uppercase tracking-[0.2em]">
                            <span>{formatDate(guest.createdAt.toISOString()).split(" ")[0]}</span>
                            <span>{guest.createdAt.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
                         </div>
-                     </div>
+                      </div>
                    ))
                  )}
               </div>

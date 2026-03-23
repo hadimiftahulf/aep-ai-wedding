@@ -70,6 +70,19 @@ export async function submitRsvp(formData: FormData) {
   }
 }
 
+export async function deleteGuestbookEntry(id: string) {
+  try {
+    await prisma.guestbook.delete({
+      where: { id },
+    });
+    revalidatePath("/dashboard");
+    return { success: true };
+  } catch (error) {
+    console.error("Delete Error:", error);
+    return { success: false, error: "Gagal menghapus pesan" };
+  }
+}
+
 export async function getGuestbook() {
   try {
     const messages = await prisma.guestbook.findMany({
