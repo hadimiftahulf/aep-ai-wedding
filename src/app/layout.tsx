@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
+    icon: "/favicon.svg",
     apple: "/images/couple-chibi.png",
   },
 };

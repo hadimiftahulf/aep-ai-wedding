@@ -28,15 +28,15 @@ export function MusicPlayer({ isPlaying: forcePlay }: { isPlaying?: boolean }) {
     <>
       <audio
         ref={audioRef}
-        src="/audio/backsound.mp3"
+        src="/lagu.mp3"
         loop
         preload="auto"
       />
       <button
         onClick={togglePlay}
         className={cn(
-          "fixed bottom-8 right-8 z-50 w-14 h-14 flex items-center justify-center rounded-full bg-paper border border-gold-300 text-teal-800 transition-all hover:scale-110 hover:shadow-lg focus:outline-none",
-          isPlaying ? "shadow-md" : "opacity-80 hover:opacity-100"
+          "fixed bottom-8 left-8 z-50 w-14 h-14 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-gold-300 text-teal-800 shadow-xl transition-all hover:scale-110 focus:outline-none",
+          isPlaying ? "animate-pulse-slow" : "opacity-80"
         )}
         aria-label="Play/Pause Music"
       >
