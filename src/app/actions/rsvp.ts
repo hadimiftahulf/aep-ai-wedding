@@ -13,14 +13,14 @@ async function sendWhatsAppNotification(name: string, message: string, attendanc
   ].filter(Boolean).join(",");
 
   const statusEmoji = attendance === "hadir" ? "✅ Konfirmasi: HADIR" : attendance === "tidak_hadir" ? "❌ Konfirmasi: BERHALANGAN" : "⏳ Konfirmasi: MASIH RAGU";
-  
+
   const [visitorCount, totalRsvp, attendingCount] = await Promise.all([
     prisma.visitor.count(),
     prisma.guestbook.count(),
     prisma.guestbook.count({ where: { attendance: 'hadir' } })
   ]);
 
-  const dashboardUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://' + process.env.VERCEL_URL}/dashboard`;
+  const dashboardUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard`;
 
   const waMessage = `*Alhamdulillah, ada kiriman Doa & RSVP baru!* 💌✨
 
