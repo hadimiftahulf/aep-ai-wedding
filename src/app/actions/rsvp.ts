@@ -14,6 +14,12 @@ async function sendWhatsAppNotification(name: string, message: string, attendanc
 
   const statusEmoji = attendance === "hadir" ? "✅ Konfirmasi: HADIR" : attendance === "tidak_hadir" ? "❌ Konfirmasi: BERHALANGAN" : "⏳ Konfirmasi: MASIH RAGU";
   
+  const [visitorCount, totalRsvp, attendingCount] = await Promise.all([
+    prisma.visitor.count(),
+    prisma.guestbook.count(),
+    prisma.guestbook.count({ where: { attendance: 'hadir' } })
+  ]);
+
   const dashboardUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://' + process.env.VERCEL_URL}/dashboard`;
 
   const waMessage = `*Alhamdulillah, ada kiriman Doa & RSVP baru!* 💌✨
@@ -25,7 +31,12 @@ async function sendWhatsAppNotification(name: string, message: string, attendanc
 "${message}"
 
 ---
-Terima kasih. Silakan masuk ke Dashboard Admin untuk melihat detail atau mengelola pesan:
+*Update Dashboard Saat Ini:*
+👥 Total Pengunjung: ${visitorCount}
+📝 Total RSVP Masuk: ${totalRsvp}
+✨ Tamu Akan Hadir: ${attendingCount}
+
+Silakan masuk ke Dashboard Admin untuk detail lebih lanjut:
 🔗 ${dashboardUrl} 💍✨`;
 
   try {
