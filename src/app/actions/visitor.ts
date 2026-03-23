@@ -9,7 +9,6 @@ export async function trackVisit() {
     let ip = "unknown";
 
     if (xForwardedFor) {
-      // x-forwarded-for can be a comma-separated list of IPs, the first one is the client
       ip = xForwardedFor.split(',')[0].trim();
     } else {
       ip = headersList.get("x-real-ip") || "unknown";
@@ -17,16 +16,11 @@ export async function trackVisit() {
 
     const userAgent = headersList.get("user-agent") || "unknown";
 
-    // Stop if localhost or common development IPs
     if (ip === "::1" || ip === "127.0.0.1" || ip.startsWith("192.168.") || ip.startsWith("10.")) return;
 
-    // Use upsert to track unique IPs (only creates if not exists)
     await prisma.visitor.upsert({
       where: { ip },
-      update: {
-        // Optional: update visitedAt or userAgent if they return
-        // visitedAt: new Date() 
-      },
+      update: {},
       create: {
         ip,
         userAgent,
@@ -34,5 +28,49 @@ export async function trackVisit() {
     });
   } catch (error) {
     console.error("Failed to track visitor:", error);
+  }
+}
+
+export async function getVisitorHistory() {
+  try {
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    sevenDaysAgo.setHours(0, 0, 0, 0);
+
+    const visitors = await prisma.visitor.findMany({
+      where: {
+        visitedAt: {
+          gte: sevenDaysAgo,
+        },
+      },
+      select: {
+        visitedAt: true,
+      },
+      orderBy: {
+        visitedAt: "asc",
+      },
+    });
+
+    const history: Record<string, number> = {};
+    for (let i = 0; i < 7; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      const dateStr = date.toISOString().split("T")[0];
+      history[dateStr] = 0;
+    }
+
+    visitors.forEach((v: { visitedAt: Date }) => {
+      const dateStr = v.visitedAt.toISOString().split("T")[0];
+      if (history[dateStr] !== undefined) {
+        history[dateStr]++;
+      }
+    });
+
+    return Object.entries(history)
+      .map(([date, count]) => ({ date, count }))
+      .sort((a, b) => a.date.localeCompare(b.date));
+  } catch (error) {
+    console.error("Failed to fetch visitor history:", error);
+    return [];
   }
 }

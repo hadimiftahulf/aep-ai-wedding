@@ -4,6 +4,8 @@ import { DashboardMascots } from "@/components/ui/DashboardMascots";
 import { DashboardContent } from "@/components/ui/DashboardContent";
 import Image from "next/image";
 
+import { getVisitorHistory } from "@/app/actions/visitor";
+
 export const dynamic = "force-dynamic";
 
 interface Guest {
@@ -15,11 +17,12 @@ interface Guest {
 }
 
 export default async function DashboardPage() {
-  const [visitors, guestsRaw] = await Promise.all([
+  const [visitors, guestsRaw, visitorHistory] = await Promise.all([
     prisma.visitor.count(),
     prisma.guestbook.findMany({
       orderBy: { createdAt: "desc" },
     }),
+    getVisitorHistory(),
   ]);
 
   const guests = guestsRaw as Guest[];
@@ -30,6 +33,7 @@ export default async function DashboardPage() {
     attending: guests.filter((g: Guest) => g.attendance === "hadir").length,
     notAttending: guests.filter((g: Guest) => g.attendance === "tidak_hadir").length,
     tentative: guests.filter((g: Guest) => g.attendance === "ragu").length,
+    history: visitorHistory,
   };
 
   return (
