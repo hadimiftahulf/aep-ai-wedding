@@ -7,18 +7,18 @@ export const weddingData = {
       instagram: "@aepaef",
     },
     bride: {
-      name: "Fulanah",
-      shortName: "Fulan",
-      parents: "Putri dari Bpk. Fulan & Ibu Fulanah",
-      instagram: "",
+      name: "Ai",
+      shortName: "Ai",
+      parents: "Putri dari Bpk. Banan & Ibu Fulanah",
+      instagram: "@ai",
     },
   },
   events: {
     akad: {
       name: "Akad Nikah",
       date: "2026-04-18",
-      time: "Waktu menyusul",
-      location: "Coming Soon",
+      time: "09.00",
+      location: "Pagelaran, Cianjur",
       address: "Informasi lokasi akan segera diperbarui",
       mapUrl: "#",
     },
@@ -34,7 +34,7 @@ export const weddingData = {
   banks: [
     {
       name: "BCA",
-      account: "1234567890",
+      account: "2831793327",
       owner: "Aep Saepudin",
     },
     {
