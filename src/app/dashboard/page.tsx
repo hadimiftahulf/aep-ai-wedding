@@ -3,6 +3,7 @@ import { formatDate } from "@/lib/utils";
 import { WhatsAppGenerator } from "@/components/sections/WhatsAppGenerator";
 import { PWAInstallButton } from "@/components/ui/PWAInstallButton";
 import { DeleteGuestbookButton } from "@/components/ui/DeleteGuestbookButton";
+import { DashboardGame } from "@/components/ui/DashboardGame";
 
 export const dynamic = "force-dynamic";
 
@@ -205,8 +206,8 @@ export default async function DashboardPage() {
             </div>
           </div>
 
-          {/* Sidebar Area - Column Span 4 */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-8">
+            <DashboardGame />
             <WhatsAppGenerator />
             
             <div className="bg-[#121b18] rounded-[1.5rem] p-6 lg:p-8 text-white shadow-2xl relative overflow-hidden group">

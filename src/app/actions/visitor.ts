@@ -5,12 +5,20 @@ import { headers } from "next/headers";
 export async function trackVisit() {
   try {
     const headersList = headers();
-    // Vercel routes specific IP headers
-    const ip = headersList.get("x-forwarded-for") || headersList.get("x-real-ip") || "unknown";
+    const xForwardedFor = headersList.get("x-forwarded-for");
+    let ip = "unknown";
+
+    if (xForwardedFor) {
+      // x-forwarded-for can be a comma-separated list of IPs, the first one is the client
+      ip = xForwardedFor.split(',')[0].trim();
+    } else {
+      ip = headersList.get("x-real-ip") || "unknown";
+    }
+
     const userAgent = headersList.get("user-agent") || "unknown";
 
-    // Skip if localhost or unknown (optional, but good for dev)
-    // if (ip === "::1" || ip === "127.0.0.1") return;
+    // Stop if localhost or common development IPs
+    if (ip === "::1" || ip === "127.0.0.1" || ip.startsWith("192.168.") || ip.startsWith("10.")) return;
 
     // Use upsert to track unique IPs (only creates if not exists)
     await prisma.visitor.upsert({
