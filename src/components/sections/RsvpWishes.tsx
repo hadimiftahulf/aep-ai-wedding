@@ -125,7 +125,7 @@ export function RsvpWishes() {
              </span>
           </div>
           
-          <div className="flex-1 overflow-y-auto max-h-[500px] pr-4 space-y-6">
+          <div className="flex-1 overflow-y-auto max-h-[450px] pr-2 space-y-4 custom-scrollbar scrollbar-thin scrollbar-thumb-gold-400/30 scrollbar-track-transparent">
             <AnimatePresence>
               {messages.length === 0 ? (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center h-48 text-teal-900/30 font-body text-sm italic">
@@ -135,27 +135,29 @@ export function RsvpWishes() {
                 messages.map((msg) => (
                   <motion.div 
                     key={msg.id} 
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="group relative bg-sage-50/50 p-6 rounded-2xl border border-teal-800/5 hover:bg-sage-100/50 transition-colors duration-500"
+                    transition={{ duration: 0.4 }}
+                    className="group relative bg-sage-50/30 p-4 md:p-5 rounded-2xl border border-teal-800/5 hover:bg-sage-50 transition-colors duration-500"
                   >
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="h-10 w-10 bg-teal-950 text-gold-400 rounded-xl flex items-center justify-center font-heading font-black text-lg shadow-lg">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="h-8 w-8 bg-teal-950 text-gold-400 rounded-lg flex items-center justify-center font-heading font-black text-sm shadow-md">
                         {msg.name.charAt(0).toUpperCase()}
                       </div>
                       <div className="flex-1">
-                        <p className="font-heading text-base text-teal-950 font-bold tracking-tight">{msg.name}</p>
-                        <span className={`inline-block text-[8px] px-2 py-0.5 rounded-md uppercase tracking-wider font-bold mt-0.5 ${
-                          msg.attendance === 'hadir' ? 'bg-green-100 text-green-700' : 
-                          msg.attendance === 'tidak_hadir' ? 'bg-red-50 text-red-600' : 
-                          'bg-orange-50 text-orange-600'
-                        }`}>
-                          {msg.attendance === 'hadir' ? 'Akan Hadir' : msg.attendance === 'tidak_hadir' ? 'Tidak Hadir' : 'Tentatif'}
-                        </span>
+                        <div className="flex items-center justify-between gap-2">
+                           <p className="font-heading text-sm text-teal-950 font-bold tracking-tight truncate max-w-[120px] md:max-w-none">{msg.name}</p>
+                           <span className={`text-[7px] px-1.5 py-0.5 rounded-md uppercase tracking-wider font-bold ${
+                             msg.attendance === 'hadir' ? 'bg-green-100 text-green-700' : 
+                             msg.attendance === 'tidak_hadir' ? 'bg-red-50 text-red-600' : 
+                             'bg-orange-50 text-orange-600'
+                           }`}>
+                             {msg.attendance === 'hadir' ? 'Hadir' : msg.attendance === 'tidak_hadir' ? 'Absen' : 'Ragu'}
+                           </span>
+                        </div>
                       </div>
                     </div>
-                    <p className="text-teal-950/70 text-sm leading-relaxed whitespace-pre-line font-body italic pl-2 border-l-2 border-gold-400/20">
+                    <p className="text-teal-950/70 text-[13px] leading-relaxed whitespace-pre-line font-body italic pl-2 border-l-2 border-gold-400/20">
                       &quot;{msg.message}&quot;
                     </p>
                   </motion.div>
