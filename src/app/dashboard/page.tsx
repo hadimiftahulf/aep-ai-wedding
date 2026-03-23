@@ -44,7 +44,7 @@ export default async function DashboardPage() {
 
       {/* Top Accent Bar */}
       <div className="h-1 bg-gradient-to-r from-teal-950 via-gold-500 to-teal-950 relative z-20" />
-      
+
       <div className="max-w-[1400px] mx-auto px-4 py-8 lg:px-10 lg:py-12 relative z-10">
         {/* Relocated PWA Button & Mascots Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -62,36 +62,36 @@ export default async function DashboardPage() {
         {/* Unified Stats Row */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
-             <div className="flex items-center justify-between mb-2">
-               <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Confirmed</p>
-               <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-             </div>
-             <div className="flex items-baseline gap-1">
-               <span className="text-3xl font-heading font-black text-teal-950 leading-none">{stats.attending}</span>
-               <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
-             </div>
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Confirmed</p>
+              <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+            </div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-3xl font-heading font-black text-teal-950 leading-none">{stats.attending}</span>
+              <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+            </div>
           </div>
 
           <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
-             <div className="flex items-center justify-between mb-2">
-               <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Unable</p>
-               <span className="h-1.5 w-1.5 rounded-full bg-red-400 opacity-60" />
-             </div>
-             <div className="flex items-baseline gap-1">
-               <span className="text-3xl font-heading font-black text-gold-600 leading-none">{stats.notAttending}</span>
-               <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
-             </div>
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Unable</p>
+              <span className="h-1.5 w-1.5 rounded-full bg-red-400 opacity-60" />
+            </div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-3xl font-heading font-black text-gold-600 leading-none">{stats.notAttending}</span>
+              <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+            </div>
           </div>
 
           <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
-             <div className="flex items-center justify-between mb-2">
-               <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Pending</p>
-               <span className="h-1.5 w-1.5 rounded-full bg-gold-400 opacity-60" />
-             </div>
-             <div className="flex items-baseline gap-1">
-               <span className="text-3xl font-heading font-black text-teal-950/60 leading-none">{stats.tentative}</span>
-               <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
-             </div>
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Pending</p>
+              <span className="h-1.5 w-1.5 rounded-full bg-gold-400 opacity-60" />
+            </div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-3xl font-heading font-black text-teal-950/60 leading-none">{stats.tentative}</span>
+              <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+            </div>
           </div>
         </div>
 
@@ -100,34 +100,34 @@ export default async function DashboardPage() {
 
         {/* System Info Footer Section */}
         <div className="mt-16 bg-[#121b18] rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden group">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-gold-400/5 rounded-full -mr-32 -mt-32 blur-[100px] transition-all group-hover:bg-gold-400/10" />
-           
-           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
-              <div className="max-w-xl">
-                <div className="flex items-center gap-3 mb-6 text-gold-400">
-                  <div className="h-10 w-10 bg-white/5 rounded-2xl flex items-center justify-center border border-white/5 shadow-inner">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  </div>
-                  <h4 className="font-heading text-xl font-bold tracking-tight uppercase">System Information & Guide</h4>
-                </div>
-                <ul className="space-y-5 text-[11px] lg:text-[12px] text-white/40 leading-relaxed font-body font-medium uppercase tracking-[0.1em]">
-                  <li className="flex gap-4 items-start pb-5 border-b border-white/5">
-                    <span className="text-gold-500 font-bold opacity-30 shrink-0">01</span>
-                    <span>Gunakan parameter <b>?to=Nama+Tamu</b> untuk personalisasi greeting instan di halaman utama.</span>
-                  </li>
-                  <li className="flex gap-4 items-start">
-                    <span className="text-gold-500 font-bold opacity-30 shrink-0">02</span>
-                    <span>Dashboard ini sudah teroptimasi sebagai <b>PWA</b>. Tambahkan ke Layar Utama (Add to Home Screen) untuk akses cepat tanpa browser.</span>
-                  </li>
-                </ul>
-              </div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gold-400/5 rounded-full -mr-32 -mt-32 blur-[100px] transition-all group-hover:bg-gold-400/10" />
 
-              <div className="flex flex-col items-center md:items-end gap-2 text-center md:text-right">
-                 <p className="text-[8px] uppercase tracking-[0.4em] font-black text-white/20 mb-2">Digital Signature</p>
-                 <p className="font-heading text-2xl font-black text-white leading-none">AEP-WEDDING</p>
-                 <p className="text-gold-500/40 text-[9px] uppercase tracking-widest font-bold">Premium Admin Suite v2.5</p>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-3 mb-6 text-gold-400">
+                <div className="h-10 w-10 bg-white/5 rounded-2xl flex items-center justify-center border border-white/5 shadow-inner">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <h4 className="font-heading text-xl font-bold tracking-tight uppercase">System Information & Guide</h4>
               </div>
-           </div>
+              <ul className="space-y-5 text-[11px] lg:text-[12px] text-white/40 leading-relaxed font-body font-medium uppercase tracking-[0.1em]">
+                <li className="flex gap-4 items-start pb-5 border-b border-white/5">
+                  <span className="text-gold-500 font-bold opacity-30 shrink-0">01</span>
+                  <span>Gunakan parameter <b>?to=Nama+Tamu</b> untuk personalisasi greeting instan di halaman utama.</span>
+                </li>
+                <li className="flex gap-4 items-start">
+                  <span className="text-gold-500 font-bold opacity-30 shrink-0">02</span>
+                  <span>Dashboard ini sudah teroptimasi sebagai <b>PWA</b>. Tambahkan ke Layar Utama (Add to Home Screen) untuk akses cepat tanpa browser.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col items-center md:items-end gap-2 text-center md:text-right">
+              <p className="text-[8px] uppercase tracking-[0.4em] font-black text-white/20 mb-2">Digital Signature</p>
+              <p className="font-heading text-2xl font-black text-white leading-none">Aep-Ai Wedding</p>
+              <p className="text-gold-500/40 text-[9px] uppercase tracking-widest font-bold">Premium Admin Suite v2.5</p>
+            </div>
+          </div>
         </div>
       </div>
 
