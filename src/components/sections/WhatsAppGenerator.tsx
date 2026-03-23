@@ -1,12 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { weddingData } from "@/data/wedding";
 
 export function WhatsAppGenerator() {
   const [name, setName] = useState("");
+  const [mounted, setMounted] = useState(false);
   const baseUrl = typeof window !== "undefined" ? window.location.origin : "";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   const generateUrl = () => {
     const encodedName = encodeURIComponent(name);
@@ -37,6 +42,14 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿`;
     const url = `https://wa.me/?text=${encodeURIComponent(messageTemplate)}`;
     window.open(url, "_blank");
   };
+
+  if (!mounted) return (
+    <Card className="p-6 bg-white/90 border-gold-200/50 shadow-2xl backdrop-blur-md animate-pulse">
+      <div className="h-40 flex items-center justify-center text-teal-950/20 italic text-xs">
+        Loading generator...
+      </div>
+    </Card>
+  );
 
   return (
     <Card className="p-6 bg-white/90 border-gold-200/50 shadow-2xl backdrop-blur-md">
