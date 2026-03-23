@@ -104,7 +104,7 @@ export function FloatingMascot() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[90] flex flex-col items-end gap-2">
+    <div className="fixed bottom-3 right-3 md:bottom-8 md:right-8 z-[90] flex flex-col items-end gap-2">
       {/* Speech bubble */}
       <AnimatePresence>
         {showBubble && isExpanded && (
@@ -159,7 +159,6 @@ export function FloatingMascot() {
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="rounded-full overflow-hidden border-2 border-gold-400 shadow-lg bg-white relative"
-          style={{ width: 56, height: 56 }}
         >
           <AnimatePresence mode="wait">
             <motion.div

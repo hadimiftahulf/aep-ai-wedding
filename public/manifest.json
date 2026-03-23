@@ -1,0 +1,17 @@
+{
+  "name": "The Wedding of Aep & Fulanah",
+  "short_name": "A&P Wedding",
+  "description": "Digital Wedding Invitation of Aep & fulanah",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafaf8",
+  "theme_color": "#134e4a",
+  "icons": [
+    {
+      "src": "/images/couple-chibi.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

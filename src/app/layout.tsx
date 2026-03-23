@@ -19,8 +19,20 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Aep & Pasangan | The Wedding Of",
-  description: "Digital wedding invitation",
+  title: "The Wedding of Aep & Fulanah",
+  description: "Official Digital Wedding Invitation of Aep & fulanah 💍✨",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "A&P Wedding",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  icons: {
+    apple: "/images/couple-chibi.png",
+  },
 };
 
 export default function RootLayout({
