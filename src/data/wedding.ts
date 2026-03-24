@@ -41,7 +41,7 @@ export const weddingData = {
     },
     {
       name: "Mandiri",
-      account: "408601019376539",
+      account: "1320030730908",
       owner: "Ai Rosita",
     }
   ],
