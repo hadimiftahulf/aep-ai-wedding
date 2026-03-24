@@ -3,16 +3,16 @@ export const weddingData = {
     groom: {
       name: "Aep Saepudin",
       shortName: "Aep",
-      parents: "Putra ke-4 dari Bapak Suhala & Ibu Esih",
+      parents: "Putra dari Bapak Suhala & Ibu Esih",
       instagram: "@aepaef",
       phone: "6282214074959",
     },
     bride: {
-      name: "Ai",
+      name: "Ai Rosita",
       shortName: "Ai",
-      parents: "Putri dari Bpk. Banan & Ibu Fulanah",
-      instagram: "@ai",
-      phone: "6289656012756",
+      parents: "Putri dari Bpk. Banan & Ibu Kuswati",
+      instagram: "@airositabentar",
+      phone: "6282315555213",
     },
   },
   events: {
@@ -28,7 +28,7 @@ export const weddingData = {
       name: "Resepsi Pernikahan",
       date: "2026-04-18",
       time: "12:00 WIB - Selesai",
-      location: "Coming Soon",
+      location: "Pagelaran, Cianjur",
       address: "Informasi lokasi akan segera diperbarui",
       mapUrl: "#",
     },
@@ -41,8 +41,8 @@ export const weddingData = {
     },
     {
       name: "Mandiri",
-      account: "0987654321",
-      owner: "Fulanah",
+      account: "408601019376539",
+      owner: "Ai Rosita",
     }
   ],
   quranVerse: {
