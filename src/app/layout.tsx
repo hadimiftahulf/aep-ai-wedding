@@ -19,13 +19,13 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "The Wedding of Aep & Fulanah",
-  description: "Official Digital Wedding Invitation of Aep & fulanah 💍✨",
+  title: "The Wedding of Aep & Ai Rosita",
+  description: "Official Digital Wedding Invitation of Aep & Ai Rosita 💍✨",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "A&P Wedding",
+    title: "A&A Wedding",
   },
   formatDetection: {
     telephone: false,
