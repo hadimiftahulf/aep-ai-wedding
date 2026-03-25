@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Aep Wedding Admin",
+  title: "Aep&Ai Wedding Admin",
   manifest: "/manifest-admin.json",
   icons: {
     icon: "/favicon.svg",
