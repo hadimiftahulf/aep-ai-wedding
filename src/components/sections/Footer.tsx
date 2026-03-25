@@ -59,7 +59,16 @@ export function Footer() {
             variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] } } }}
             className="text-xs tracking-[0.2em] font-body text-gold-400 hover:text-white transition-colors mb-16 uppercase"
           >
-            Instagram: {weddingData.couple.groom.instagram}
+            Instagram: {weddingData.couple.bride.instagram}
+          </motion.a>
+          <motion.a 
+            href={`https://instagram.com/${weddingData.couple.bride.instagram.replace('@', '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] } } }}
+            className="text-xs tracking-[0.2em] font-body text-gold-400 hover:text-white transition-colors mb-16 uppercase"
+          >
+            Instagram: {weddingData.couple.bride.instagram}
           </motion.a>
         )}
         
