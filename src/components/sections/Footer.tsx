@@ -93,7 +93,7 @@ export function Footer() {
 
           {/* Tombol utama */}
           <a
-            href="https://wa.me/6289656012756"
+            href={`https://wa.me/6289656012756?text=${encodeURIComponent("Halo Saffteen 👋\n\nSaya baru melihat undangan digital pernikahan yang sangat mewah dan tertarik untuk membuat yang serupa.\n\nBoleh minta info lebih lanjut mengenai paket & harga undangan digitalnya? 🙏")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full overflow-hidden
