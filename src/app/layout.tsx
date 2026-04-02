@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/favicon.svg",
-    apple: "/images/couple-chibi.png?v=3",
+    icon: "/icon.png?v=7",
+    apple: "/images/couple-chibi.png?v=7",
   },
 };
 
