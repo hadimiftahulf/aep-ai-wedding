@@ -19,12 +19,25 @@ export const staggerContainer: Variants = {
 };
 
 export const fadeUpVariant: Variants = {
-  hidden: { opacity: 0, y: 40, filter: "blur(8px)" },
+  hidden: { 
+    opacity: 0, 
+    y: 100, 
+    scale: 0.85, 
+    rotateX: 12, 
+    filter: "blur(20px)" 
+  },
   show: { 
     opacity: 1, 
     y: 0, 
+    scale: 1, 
+    rotateX: 0, 
     filter: "blur(0px)",
-    transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] } 
+    transition: { 
+      type: "spring", 
+      bounce: 0.45, 
+      damping: 18,
+      mass: 0.8
+    } 
   },
 };
 
@@ -40,7 +53,7 @@ export const lineVariant: Variants = {
 export function SectionWrapper({
   className,
   children,
-  withOrnament = false,
+  withOrnament = false, // Deprecated, kept for backward compatibility to prevent TS errors
   ...props
 }: SectionWrapperProps) {
   return (
@@ -50,23 +63,13 @@ export function SectionWrapper({
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
       className={cn(
-        "relative py-32 px-6 md:py-40 overflow-hidden w-full",
+        "relative py-24 px-6 md:py-40 overflow-hidden w-full",
         className
       )}
+      data-ornament={withOrnament}
       {...props}
     >
-      {/* Hyper-detailed botanical wash in background */}
-      {withOrnament && (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.12 }}
-          transition={{ duration: 2 }}
-          viewport={{ once: true }}
-          className="absolute inset-0 pointer-events-none -z-10 bg-luxury-floral bg-cover bg-center bg-no-repeat mix-blend-multiply"
-        />
-      )}
-      
-      <div className="max-w-5xl mx-auto w-full relative z-10">
+      <div className="max-w-5xl mx-auto w-full relative z-10" style={{ perspective: "1000px" }}>
         {children as React.ReactNode}
       </div>
     </motion.section>
