@@ -34,10 +34,13 @@ function HomeContent() {
   return (
     <main className="min-h-screen relative w-full overflow-x-hidden bg-[#FAFAF8]">
       
+      {/* Global Botanical Texture Wallpaper (Continuous Deep Background) */}
+      <div className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-10 mix-blend-multiply bg-[url('/images/luxury-floral.png?v=3')] bg-cover bg-center bg-no-repeat bg-fixed" />
+
       {/* 3D Ambient Parallax Orbs (Fixed Deep Background) */}
-      <div className="fixed top-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-navy-900/[0.03] blur-[100px] pointer-events-none z-0" />
-      <div className="fixed bottom-[-10%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-gold-400/[0.05] blur-[120px] pointer-events-none z-0" />
-      <div className="fixed top-[40%] left-[20%] w-[40vw] h-[40vw] rounded-full bg-navy-900/[0.02] blur-[80px] pointer-events-none z-0" />
+      <div className="fixed top-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-navy-900/[0.04] blur-[100px] pointer-events-none z-0" />
+      <div className="fixed bottom-[-10%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-gold-400/[0.06] blur-[120px] pointer-events-none z-0" />
+      <div className="fixed top-[40%] left-[20%] w-[40vw] h-[40vw] rounded-full bg-navy-900/[0.03] blur-[80px] pointer-events-none z-0" />
 
       {/* Confetti on open */}
       <ConfettiBurst trigger={showConfetti} />

@@ -5,6 +5,7 @@ import { motion, Variants, HTMLMotionProps } from "framer-motion";
 
 interface SectionWrapperProps extends HTMLMotionProps<"section"> {
   withOrnament?: boolean;
+  variant?: "default" | "alternate";
 }
 
 export const staggerContainer: Variants = {
@@ -54,6 +55,7 @@ export function SectionWrapper({
   className,
   children,
   withOrnament = false, // Deprecated, kept for backward compatibility to prevent TS errors
+  variant = "default",
   ...props
 }: SectionWrapperProps) {
   return (
@@ -64,6 +66,7 @@ export function SectionWrapper({
       viewport={{ once: true, margin: "-100px" }}
       className={cn(
         "relative py-24 px-6 md:py-40 overflow-hidden w-full",
+        variant === "alternate" && "bg-navy-900/[0.03] border-y border-navy-900/5 shadow-[inset_0_0_100px_rgba(0,0,0,0.02)]",
         className
       )}
       data-ornament={withOrnament}

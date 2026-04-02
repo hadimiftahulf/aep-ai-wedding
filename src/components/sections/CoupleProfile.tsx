@@ -231,7 +231,7 @@ function PortraitCard({
 
 export function CoupleProfile() {
   return (
-    <SectionWrapper withOrnament className="text-center py-16 md:py-32 relative z-10">
+    <SectionWrapper withOrnament variant="alternate" className="py-24 md:py-32 relative z-10 w-full px-4 lg:px-8">
       <motion.div variants={fadeUpVariant} className="flex flex-col items-center mb-16 md:mb-24 relative z-10">
         <p className="text-xs md:text-sm font-body uppercase tracking-[0.3em] text-gold-500 mb-6 font-medium">Sang Mempelai</p>
         <h3 className="font-script text-5xl md:text-7xl text-navy-800 font-medium tracking-wide">Ikatan Suci</h3>

@@ -51,7 +51,7 @@ export function RsvpWishes() {
   };
 
   return (
-    <SectionWrapper withOrnament className="py-20 md:py-32 text-center max-w-6xl mx-auto w-full relative z-10">
+    <SectionWrapper withOrnament variant="alternate" className="py-20 md:py-32 text-center max-w-6xl mx-auto w-full relative z-10">
       <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center mb-12 md:mb-20 relative z-10 px-4">
         <div className="w-1.5 h-1.5 rounded-full bg-navy-800 mb-6" />
         <h3 className="font-heading text-4xl md:text-5xl text-navy-900 font-bold tracking-wide uppercase">
