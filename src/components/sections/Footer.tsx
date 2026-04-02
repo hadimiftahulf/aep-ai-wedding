@@ -78,14 +78,82 @@ export function Footer() {
           </div>
         )}
         
+        {/* Marketing CTA - Saffteen */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true }}
+          className="mt-10 mb-4 px-4 flex flex-col items-center gap-3"
+        >
+          {/* Label konteks */}
+          <p className="text-[10px] tracking-[0.35em] uppercase text-white/30 font-body">
+            Undangan ini dibuat dengan
+          </p>
+
+          {/* Tombol utama */}
+          <a
+            href="https://wa.me/6289656012756"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full overflow-hidden
+              bg-gradient-to-r from-gold-600/20 via-gold-500/10 to-gold-600/20
+              border border-gold-500/40 hover:border-gold-400/70
+              transition-all duration-500 hover:scale-[1.04]
+              hover:shadow-[0_0_28px_rgba(212,175,55,0.25)]
+              cursor-pointer"
+          >
+            {/* Shimmer sweep on hover */}
+            <span
+              className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full
+                bg-gradient-to-r from-transparent via-gold-400/15 to-transparent
+                transition-transform duration-700 ease-in-out"
+            />
+
+            {/* Konten tombol */}
+            <span className="relative flex flex-col items-start gap-0.5 leading-none">
+              <span className="text-[10px] text-white/45 tracking-[0.3em] uppercase font-body">
+                Buat undangan serupa
+              </span>
+              <span className="text-sm md:text-base text-gold-400 font-heading tracking-widest uppercase flex items-center gap-2">
+                <span className="font-bold">Saffteen</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </span>
+            </span>
+
+            {/* Badge "Gratis Konsultasi" */}
+            <span className="relative flex-shrink-0 text-[9px] tracking-wide font-body uppercase
+              bg-gold-500/20 text-gold-300 border border-gold-500/30 rounded-full px-2 py-0.5
+              group-hover:bg-gold-500/30 transition-colors duration-300">
+              Gratis Konsultasi
+            </span>
+          </a>
+
+          {/* Social proof micro-copy */}
+          <p className="text-[9px] text-white/20 tracking-widest font-body italic">
+            ✦ Sudah dipercaya ratusan pasangan ✦
+          </p>
+        </motion.div>
+
         <motion.p 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 2, delay: 1 }}
           viewport={{ once: true }}
-          className="text-[10px] tracking-[0.2em] text-white/30 font-body uppercase"
+          className="text-[9px] tracking-[0.3em] text-white/20 font-body uppercase"
         >
-          Crafted Elegantly by <a href="https://wa.me/6289656012756" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors">Saffteen</a>
+          © {new Date().getFullYear()} AEP & AI • EXCLUSIVE DIGITAL INVITATION
         </motion.p>
       </motion.div>
     </footer>
