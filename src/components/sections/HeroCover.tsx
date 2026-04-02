@@ -95,28 +95,27 @@ export function HeroCover({ onOpen, guestName }: HeroCoverProps) {
             className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-lg mb-12"
           >
             
-            {/* Speech bubble */}
-            <AnimatePresence>
-              {isWaving && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.8 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="bg-white/95 backdrop-blur-md border border-gold-300 text-navy-900 font-body text-sm px-5 py-2.5 rounded-2xl shadow-lg mb-4 z-50"
-                >
-                  Assalamualaikum! 👋💕
-                </motion.div>
-              )}
-            </AnimatePresence>
-
             {/* Ornate Frame Mimic — now interactive */}
             <motion.div 
               variants={fadeUpVariant} 
               onClick={handleCoupleClick}
               whileTap={{ scale: 0.96 }}
-              className="w-64 h-[22rem] md:w-80 md:h-[28rem] flex flex-col items-center justify-center mb-16 drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] relative cursor-pointer select-none isolate"
+              className="w-64 h-[17rem] md:w-80 md:h-[24rem] flex flex-col items-center justify-center mb-3 drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] relative cursor-pointer select-none isolate"
             >
+              {/* Speech bubble — di atas foto */}
+              <AnimatePresence>
+                {isWaving && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6, scale: 0.85 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -6, scale: 0.85 }}
+                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                    className="absolute -top-10 left-1/2 -translate-x-1/2 z-50 whitespace-nowrap bg-white/95 backdrop-blur-md border border-gold-300 text-navy-900 font-body text-sm px-5 py-2.5 rounded-2xl shadow-lg"
+                  >
+                    Assalamualaikum! 👋💕
+                  </motion.div>
+                )}
+              </AnimatePresence>
               <div className="w-full h-full relative flex items-center justify-center rounded-[4rem] rounded-b-xl overflow-hidden bg-transparent">
                 {/* Slow sweeping light */}
                 <motion.div 
@@ -164,31 +163,30 @@ export function HeroCover({ onOpen, guestName }: HeroCoverProps) {
               </div>
             </motion.div>
 
-            <motion.p 
-              variants={fadeUpVariant} 
-              className="font-body text-[10px] tracking-widest text-navy-700/30 uppercase mb-8"
+            <motion.div
+              variants={fadeUpVariant}
+              className="flex flex-col items-center gap-1.5 mb-5 px-6 py-3 rounded-2xl bg-white/60 backdrop-blur-sm border border-gold-300/30 shadow-sm w-full max-w-xs"
             >
-              ✨ Tap foto untuk sapa mereka
-            </motion.p>
+              <p className="font-body text-[10px] tracking-widest text-navy-700/60 uppercase">
+                ✨ Tap foto untuk sapa mereka
+              </p>
+              <p className="font-body text-xs md:text-sm tracking-[0.4em] uppercase text-navy-800 font-bold">
+                The Wedding Celebration
+              </p>
 
-            <motion.p variants={fadeUpVariant} className="font-body text-xs md:text-sm tracking-[0.4em] uppercase text-navy-700/60 mb-10 font-bold mix-blend-multiply">
-              The Wedding Celebration
-            </motion.p>
-            
-            <motion.p variants={fadeUpVariant} className="font-heading text-lg md:text-xl text-gold-600 mb-4 italic">
-              Kpd. Yth. Bapak/Ibu/Saudara/i
-            </motion.p>
+              <div className="w-16 h-px bg-gold-400/30 my-1" />
 
-            {guestName && (
-              <motion.p 
-                variants={fadeUpVariant}
-                className="font-heading text-2xl md:text-3xl text-navy-900 font-bold mb-12 tracking-wide"
-              >
-                {decodeURIComponent(guestName)}
-              </motion.p>
-            )}
+              <p className="font-heading text-lg md:text-xl text-gold-700 italic">
+                Kpd. Yth. Bapak/Ibu/Saudara/i
+              </p>
 
-            {!guestName && <div className="mb-8" />}
+              {guestName && (
+                <p className="font-heading text-2xl md:text-3xl text-navy-900 font-bold tracking-wide">
+                  {decodeURIComponent(guestName)}
+                </p>
+              )}
+            </motion.div>
+
 
             <motion.button
               variants={fadeUpVariant}

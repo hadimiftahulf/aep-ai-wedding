@@ -105,8 +105,26 @@ function PortraitCard({
       viewport={{ once: true, margin: "-50px" }}
       variants={cardReveal}
       transition={{ delay }}
-      className="flex flex-col items-center flex-1 w-full max-w-sm"
+      className="flex flex-col items-center flex-1 w-full max-w-sm relative"
     >
+      {/* Reaction bubble — nempel di atas card */}
+      <div className="relative w-full flex justify-center h-8">
+        <AnimatePresence>
+          {isWaving && (
+            <motion.div
+              initial={{ opacity: 0, y: 6, scale: 0.85 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -6, scale: 0.85 }}
+              transition={{ type: "spring", stiffness: 320, damping: 22 }}
+              className="absolute top-0 bg-white/95 backdrop-blur-md border border-gold-300 text-navy-900 font-body text-sm px-5 py-2.5 rounded-2xl shadow-xl z-50 whitespace-nowrap"
+            >
+              {reactions[tapCount % reactions.length]}
+              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-b border-r border-gold-300 rotate-45" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
       {/* Interactive Portrait */}
       <Tilt3DWrapper intensity={25}>
       <motion.div
@@ -117,21 +135,6 @@ function PortraitCard({
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
         className="w-64 h-[22rem] md:w-80 md:h-[28rem] relative cursor-pointer group select-none drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] mb-8 isolate mt-4"
       >
-        {/* Reaction bubble absolutely positioned close to head */}
-        <AnimatePresence>
-          {isWaving && (
-            <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="absolute top-4 md:top-8 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-gold-300 text-navy-900 font-body text-sm px-5 py-2.5 rounded-2xl shadow-xl z-50 whitespace-nowrap"
-            >
-              {reactions[tapCount % reactions.length]}
-              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-b border-r border-gold-300 rotate-45" />
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {/* Sparkle particles floating around the edge */}
         <motion.div animate={{ opacity: [0, 1, 0] }} transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
@@ -201,7 +204,7 @@ function PortraitCard({
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: delay + 1 }}
-        className="text-[10px] font-body text-navy-800/30 tracking-widest uppercase mb-6 animate-pulse"
+        className="text-[10px] font-body text-navy-800/60 tracking-widest uppercase mb-6 animate-pulse text-center"
       >
         ✨ Tap / Hover untuk sapa
       </motion.p>

@@ -87,7 +87,7 @@ export function Footer() {
           className="mt-10 mb-4 px-4 flex flex-col items-center gap-3"
         >
           {/* Label konteks */}
-          <p className="text-[10px] tracking-[0.35em] uppercase text-white/30 font-body">
+          <p className="text-xs tracking-[0.3em] uppercase text-white/60 font-body">
             Undangan ini dibuat dengan
           </p>
 
@@ -96,11 +96,11 @@ export function Footer() {
             href={`https://wa.me/6289656012756?text=${encodeURIComponent("Halo Saffteen 👋\n\nSaya baru melihat undangan digital pernikahan yang sangat mewah dan tertarik untuk membuat yang serupa.\n\nBoleh minta info lebih lanjut mengenai paket & harga undangan digitalnya? 🙏")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full overflow-hidden
-              bg-gradient-to-r from-gold-600/20 via-gold-500/10 to-gold-600/20
-              border border-gold-500/40 hover:border-gold-400/70
+            className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-full overflow-hidden
+              bg-gradient-to-r from-gold-600/30 via-gold-500/20 to-gold-600/30
+              border border-gold-400/60 hover:border-gold-300/90
               transition-all duration-500 hover:scale-[1.04]
-              hover:shadow-[0_0_28px_rgba(212,175,55,0.25)]
+              hover:shadow-[0_0_32px_rgba(212,175,55,0.35)]
               cursor-pointer"
           >
             {/* Shimmer sweep on hover */}
@@ -112,10 +112,10 @@ export function Footer() {
 
             {/* Konten tombol */}
             <span className="relative flex flex-col items-start gap-0.5 leading-none">
-              <span className="text-[10px] text-white/45 tracking-[0.3em] uppercase font-body">
+              <span className="text-[10px] text-white/70 tracking-[0.3em] uppercase font-body">
                 Buat undangan serupa
               </span>
-              <span className="text-sm md:text-base text-gold-400 font-heading tracking-widest uppercase flex items-center gap-2">
+              <span className="text-base md:text-lg text-gold-300 font-heading tracking-widest uppercase flex items-center gap-2">
                 <span className="font-bold">Saffteen</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,14 +134,14 @@ export function Footer() {
 
             {/* Badge "Gratis Konsultasi" */}
             <span className="relative flex-shrink-0 text-[9px] tracking-wide font-body uppercase
-              bg-gold-500/20 text-gold-300 border border-gold-500/30 rounded-full px-2 py-0.5
-              group-hover:bg-gold-500/30 transition-colors duration-300">
+              bg-gold-500/30 text-gold-200 border border-gold-400/50 rounded-full px-2.5 py-1
+              group-hover:bg-gold-500/50 group-hover:text-white transition-colors duration-300">
               Gratis Konsultasi
             </span>
           </a>
 
           {/* Social proof micro-copy */}
-          <p className="text-[9px] text-white/20 tracking-widest font-body italic">
+          <p className="text-[10px] text-white/50 tracking-widest font-body italic">
             ✦ Sudah dipercaya ratusan pasangan ✦
           </p>
         </motion.div>
