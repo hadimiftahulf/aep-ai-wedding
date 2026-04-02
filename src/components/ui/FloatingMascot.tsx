@@ -98,33 +98,33 @@ export function FloatingMascot() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-3 right-3 md:bottom-8 md:right-8 z-[90] flex flex-col items-end gap-2">
-      {/* Speech bubble */}
-      <AnimatePresence>
-        {showBubble && (
-          <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.85 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.85 }}
-            transition={{ type: "spring", stiffness: 300, damping: 22 }}
-            className="bg-white/95 backdrop-blur-lg border border-gold-300 rounded-2xl rounded-br-sm shadow-xl px-4 py-3 max-w-[200px] md:max-w-[240px] mr-2"
-          >
-            <p className="font-body text-xs md:text-sm text-navy-900 leading-relaxed font-semibold">{msg}</p>
-            {/* Bubble tail */}
-            <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-white border-b border-r border-gold-300 rotate-45" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mascot avatar */}
+    <div className="fixed bottom-3 right-3 md:bottom-8 md:right-8 z-[90]">
+      {/* Mascot avatar with Absolute Bubble inside for safe positioning */}
       <motion.div
         initial={{ scale: 0, opacity: 0, y: 50 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
         onClick={handleTap}
-        className="relative cursor-pointer select-none"
+        className="relative cursor-pointer select-none group"
       >
-        {/* Pulsing ring */}
+        {/* Speech bubble - Anchored to right edge of mascot to prevent screen-cutting */}
+        <AnimatePresence>
+          {showBubble && (
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.85 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.85 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22 }}
+              className="absolute bottom-[calc(100%+15px)] right-0 bg-white/95 backdrop-blur-lg border border-gold-300 rounded-2xl shadow-xl px-4 py-3 min-w-[160px] max-w-[200px] md:max-w-[240px] z-[100]"
+            >
+              <p className="font-body text-xs md:text-sm text-navy-900 leading-relaxed font-bold text-center">{msg}</p>
+              {/* Bubble tail on the right side over the mascot */}
+              <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-white border-b border-r border-gold-300 rotate-45" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Pulsing ring centered on avatar */}
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0, 0.4] }}
           transition={{ duration: 2, repeat: Infinity }}
