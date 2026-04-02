@@ -4,6 +4,7 @@ import { SectionWrapper, fadeUpVariant } from "@/components/ui/SectionWrapper";
 import { weddingData } from "@/data/wedding";
 import { motion, AnimatePresence, useInView, Variants } from "framer-motion";
 import Image from "next/image";
+import { Tilt3DWrapper } from "@/components/ui/Tilt3DWrapper";
 
 /* Card entrance */
 const cardReveal: Variants = {
@@ -106,31 +107,32 @@ function PortraitCard({
       transition={{ delay }}
       className="flex flex-col items-center flex-1 w-full max-w-sm"
     >
-      {/* Reaction bubble */}
-      <AnimatePresence>
-        {isWaving && (
-          <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.8 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="bg-white/95 backdrop-blur-md border border-gold-300 text-navy-900 font-body text-sm px-5 py-2.5 rounded-2xl rounded-bl-sm shadow-lg mb-4 relative z-50"
-          >
-            {reactions[tapCount % reactions.length]}
-            <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-white/95 border-b border-r border-gold-300 rotate-45" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Interactive Portrait */}
+      <Tilt3DWrapper intensity={25}>
       <motion.div
         onClick={triggerWave}
         onHoverStart={triggerWave}
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.04 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="w-64 h-[22rem] md:w-80 md:h-[28rem] relative cursor-pointer group select-none drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] mb-8 isolate"
+        className="w-64 h-[22rem] md:w-80 md:h-[28rem] relative cursor-pointer group select-none drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] mb-8 isolate mt-4"
       >
+        {/* Reaction bubble absolutely positioned close to head */}
+        <AnimatePresence>
+          {isWaving && (
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.8 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="absolute top-4 md:top-8 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-gold-300 text-navy-900 font-body text-sm px-5 py-2.5 rounded-2xl shadow-xl z-50 whitespace-nowrap"
+            >
+              {reactions[tapCount % reactions.length]}
+              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-b border-r border-gold-300 rotate-45" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Sparkle particles floating around the edge */}
         <motion.div animate={{ opacity: [0, 1, 0] }} transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
           className="absolute -top-4 -right-4 w-2 h-2 bg-gold-400 rounded-full z-30 drop-shadow-sm" />
@@ -191,6 +193,7 @@ function PortraitCard({
           className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 z-20 pointer-events-none rounded-[4rem] rounded-b-xl"
         />
       </motion.div>
+      </Tilt3DWrapper>
 
       {/* Tap hint */}
       <motion.p

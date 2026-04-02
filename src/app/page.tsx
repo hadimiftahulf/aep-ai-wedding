@@ -14,6 +14,7 @@ import { FallingPetals } from "@/components/ui/FallingPetals";
 import { ConfettiBurst } from "@/components/ui/ConfettiBurst";
 import { FloatingMascot } from "@/components/ui/FloatingMascot";
 import { trackVisit } from "@/app/actions/visitor";
+import { SplashScreen } from "@/components/ui/SplashScreen";
 
 function HomeContent() {
   const [isOpened, setIsOpened] = useState(false);
@@ -75,7 +76,8 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-paper" />}>
+    <Suspense fallback={<div className="min-h-screen bg-navy-900" />}>
+      <SplashScreen timeout={2000} />
       <HomeContent />
     </Suspense>
   );

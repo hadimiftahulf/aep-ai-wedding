@@ -43,13 +43,16 @@ export function EventDetails() {
                </div>
              </div>
              
-             <Button 
-               variant="primary" 
+             <a 
+               href={weddingData.events.akad.mapUrl}
+               target="_blank"
+               rel="noopener noreferrer"
                className="w-full flex items-center justify-center gap-2 mt-auto"
-               onClick={() => window.open(weddingData.events.akad.mapUrl, "_blank")}
              >
-               Buka Peta Lokasi
-             </Button>
+               <Button variant="primary" className="w-full pointer-events-none">
+                 Buka Peta Lokasi
+               </Button>
+             </a>
           </Card>
         </motion.div>
 
@@ -78,13 +81,16 @@ export function EventDetails() {
                </div>
              </div>
              
-             <Button 
-               variant="outline" 
+             <a 
+               href={weddingData.events.resepsi.mapUrl}
+               target="_blank"
+               rel="noopener noreferrer"
                className="w-full flex items-center justify-center gap-2 mt-auto"
-               onClick={() => window.open(weddingData.events.resepsi.mapUrl, "_blank")}
              >
-               Buka Peta Lokasi
-             </Button>
+               <Button variant="outline" className="w-full pointer-events-none">
+                 Buka Peta Lokasi
+               </Button>
+             </a>
           </Card>
         </motion.div>
       </div>
