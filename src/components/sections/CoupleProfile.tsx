@@ -129,70 +129,67 @@ function PortraitCard({
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.04 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="vintage-frame w-56 h-72 md:w-72 md:h-[26rem] flex flex-col items-center justify-center relative cursor-pointer group select-none shadow-2xl mb-8"
+        className="w-64 h-[22rem] md:w-80 md:h-[28rem] relative cursor-pointer group select-none drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] mb-8 isolate"
       >
         {/* Sparkle particles floating around the edge */}
         <motion.div animate={{ opacity: [0, 1, 0] }} transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-          className="absolute top-8 right-6 w-2 h-2 bg-gold-400 rounded-full z-30 drop-shadow-sm" />
+          className="absolute -top-4 -right-4 w-2 h-2 bg-gold-400 rounded-full z-30 drop-shadow-sm" />
         <motion.div animate={{ opacity: [0, 1, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-          className="absolute bottom-12 left-6 w-1.5 h-1.5 bg-gold-300 rounded-full z-30 drop-shadow-sm" />
+          className="absolute -bottom-4 -left-4 w-1.5 h-1.5 bg-gold-300 rounded-full z-30 drop-shadow-sm" />
 
-        <div className="vintage-frame-inner w-[82%] h-[84%] flex flex-col items-center justify-center relative overflow-hidden bg-white/40 backdrop-blur-xl">
-          
-          {/* Floating hearts constrained inside the inner frame */}
-          <AnimatePresence>
-            {hearts.map(hid => (
-              <FloatingHeart key={hid} id={hid} onDone={removeHeart} />
-            ))}
-          </AnimatePresence>
+        {/* Floating hearts */}
+        <AnimatePresence>
+          {hearts.map(hid => (
+            <FloatingHeart key={hid} id={hid} onDone={removeHeart} />
+          ))}
+        </AnimatePresence>
 
-          {/* Image container */}
-          <div className="w-full h-full relative flex items-center justify-center bg-gradient-to-br from-white/20 to-transparent">
-            {/* Idle pose */}
-            <motion.div
-              animate={{
-                opacity: isWaving ? 0 : 1,
-                scale: isWaving ? 0.9 : 1,
-                y: isWaving ? 0 : [0, -6, 0],
-              }}
-              transition={{
-                opacity: { duration: 0.3 },
-                scale: { duration: 0.3 },
-                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-              }}
-              className="absolute inset-0"
-            >
-              <Image src={idleSrc} alt={name} fill className="object-cover object-center mix-blend-multiply opacity-90" />
-            </motion.div>
-
-            {/* Waving pose */}
-            <motion.div
-              animate={{
-                opacity: isWaving ? 1 : 0,
-                scale: isWaving ? 1 : 1.1,
-                rotate: isWaving ? [0, -4, 4, -3, 3, -1, 0] : 0,
-                y: isWaving ? [0, -8, 0, -4, 0] : 0,
-              }}
-              transition={{
-                opacity: { duration: 0.3 },
-                scale: { duration: 0.3 },
-                rotate: { duration: 1, delay: 0.1 },
-                y: { duration: 1.2, delay: 0.1 },
-              }}
-              className="absolute inset-0"
-            >
-              <Image src={waveSrc} alt={`${name} waving`} fill className="object-cover object-center mix-blend-multiply opacity-90" />
-            </motion.div>
-          </div>
-
-          {/* Hover shimmer strictly contained in inner architectural dome */}
+        {/* The Native Avatar Image */}
+        <div className="w-full h-full relative flex items-center justify-center rounded-[4rem] rounded-b-xl overflow-hidden bg-transparent">
+          {/* Idle pose */}
           <motion.div
-            initial={{ x: "-110%" }}
-            whileHover={{ x: "110%" }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-12 z-20 pointer-events-none"
-          />
+            animate={{
+              opacity: isWaving ? 0 : 1,
+              scale: isWaving ? 0.95 : 1,
+              y: isWaving ? 0 : [0, -6, 0],
+            }}
+            transition={{
+              opacity: { duration: 0.3 },
+              scale: { duration: 0.3 },
+              y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+            }}
+            className="absolute inset-0"
+          >
+            <Image src={idleSrc} alt={name} fill className="object-contain object-bottom priority" />
+          </motion.div>
+
+          {/* Waving pose */}
+          <motion.div
+            animate={{
+              opacity: isWaving ? 1 : 0,
+              scale: isWaving ? 1 : 1.05,
+              rotate: isWaving ? [0, -4, 4, -3, 3, -1, 0] : 0,
+              y: isWaving ? [0, -8, 0, -4, 0] : 0,
+            }}
+            transition={{
+              opacity: { duration: 0.3 },
+              scale: { duration: 0.3 },
+              rotate: { duration: 1, delay: 0.1 },
+              y: { duration: 1.2, delay: 0.1 },
+            }}
+            className="absolute inset-0"
+          >
+            <Image src={waveSrc} alt={`${name} waving`} fill className="object-contain object-bottom priority" />
+          </motion.div>
         </div>
+
+        {/* Hover shimmer strictly contained */}
+        <motion.div
+          initial={{ x: "-110%" }}
+          whileHover={{ x: "110%" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 z-20 pointer-events-none rounded-[4rem] rounded-b-xl"
+        />
       </motion.div>
 
       {/* Tap hint */}

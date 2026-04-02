@@ -154,11 +154,11 @@ export function FloatingMascot() {
 
         {/* Avatar container */}
         <motion.div
-          animate={isExpanded ? { width: 80, height: 80 } : { width: 56, height: 56 }}
+          animate={isExpanded ? { width: 72, height: 100 } : { width: 56, height: 78 }}
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="rounded-full overflow-hidden border-2 border-gold-400 shadow-lg bg-white relative"
+          className="drop-shadow-2xl relative rounded-t-full rounded-b border border-gold-300/30 overflow-hidden"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -173,7 +173,7 @@ export function FloatingMascot() {
                 src={pose.src}
                 alt="Mascot"
                 fill
-                className="object-cover scale-125"
+                className="object-cover"
               />
             </motion.div>
           </AnimatePresence>
@@ -182,7 +182,7 @@ export function FloatingMascot() {
           <motion.div
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-0"
+            className="absolute inset-0 pointer-events-none"
           />
         </motion.div>
       </motion.div>

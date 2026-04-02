@@ -115,31 +115,28 @@ export function HeroCover({ onOpen, guestName }: HeroCoverProps) {
               variants={fadeUpVariant} 
               onClick={handleCoupleClick}
               whileTap={{ scale: 0.96 }}
-              className="vintage-frame w-64 h-80 md:w-80 md:h-96 flex flex-col items-center justify-center mb-16 shadow-2xl relative cursor-pointer"
+              className="w-64 h-[22rem] md:w-80 md:h-[28rem] flex flex-col items-center justify-center mb-16 drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] relative cursor-pointer select-none isolate"
             >
-              <div className="absolute inset-0 bg-navy-800/20 mix-blend-overlay pointer-events-none" />
-              <div className="vintage-frame-inner w-56 h-72 md:w-64 md:h-80 flex flex-col items-center justify-center relative overflow-hidden bg-white/50 backdrop-blur-md">
+              <div className="w-full h-full relative flex items-center justify-center rounded-[4rem] rounded-b-xl overflow-hidden bg-transparent">
                 {/* Slow sweeping light */}
                 <motion.div 
                   initial={{ x: "-100%" }}
                   animate={{ x: "200%" }}
                   transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatDelay: 5 }}
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 z-20 pointer-events-none"
+                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 z-20 pointer-events-none rounded-[4rem] rounded-b-xl"
                 />
                 
                 {/* Idle couple */}
                 <motion.div
-                  animate={{ opacity: isWaving ? 0 : 1, scale: isWaving ? 0.9 : 1 }}
+                  animate={{ opacity: isWaving ? 0 : 1, scale: isWaving ? 0.95 : 1 }}
                   transition={{ duration: 0.3 }}
                   className="absolute inset-0 z-10 flex items-center justify-center"
                 >
                   <Image 
                     src="/images/couple-chibi.png?v=3" 
                     alt="Couple Illustration"
-                    width={300}
-                    height={380}
-                    className="w-[90%] h-[90%] object-contain mix-blend-multiply opacity-95 animate-float"
-                    priority
+                    fill
+                    className="object-contain object-bottom animate-float priority"
                   />
                 </motion.div>
 
@@ -147,7 +144,7 @@ export function HeroCover({ onOpen, guestName }: HeroCoverProps) {
                 <motion.div
                   animate={{ 
                     opacity: isWaving ? 1 : 0, 
-                    scale: isWaving ? 1 : 1.1,
+                    scale: isWaving ? 1 : 1.05,
                     rotate: isWaving ? [0, -3, 3, -2, 2, 0] : 0,
                   }}
                   transition={{ 
@@ -160,10 +157,8 @@ export function HeroCover({ onOpen, guestName }: HeroCoverProps) {
                   <Image 
                     src="/images/couple-wave.png?v=3" 
                     alt="Couple Waving"
-                    width={300}
-                    height={380}
-                    className="w-[90%] h-[90%] object-contain mix-blend-multiply opacity-95"
-                    priority
+                    fill
+                    className="object-contain object-bottom priority"
                   />
                 </motion.div>
               </div>
