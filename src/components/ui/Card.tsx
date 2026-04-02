@@ -10,8 +10,8 @@ const Card = React.forwardRef<
     className={cn(
       "rounded-3xl p-8 md:p-12 relative overflow-hidden transition-all duration-700",
       glass 
-        ? "bg-white/80 backdrop-blur-md border border-white/50 shadow-[0_15px_40px_-10px_rgba(21,54,51,0.08)]" 
-        : "bg-white border border-sage-200 shadow-sm",
+        ? "bg-white/40 backdrop-blur-2xl border border-gold-400/20 shadow-[0_15px_40px_-10px_rgba(10,21,36,0.15)] ring-1 ring-white/50" 
+        : "bg-white/90 backdrop-blur-sm border border-slate-200 shadow-sm",
       className
     )}
     {...props}

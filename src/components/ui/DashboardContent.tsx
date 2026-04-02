@@ -47,8 +47,8 @@ export function DashboardContent({ guests, stats }: DashboardContentProps) {
             onClick={() => setActiveTab(tab.id)}
             className={`relative flex items-center gap-2 px-6 py-3 rounded-2xl transition-all duration-300 font-heading font-black text-[10px] uppercase tracking-widest ${
               activeTab === tab.id 
-                ? "text-teal-950" 
-                : "text-teal-950/40 hover:text-teal-950/60"
+                ? "text-navy-950" 
+                : "text-navy-950/40 hover:text-navy-950/60"
             }`}
           >
             {activeTab === tab.id && (
@@ -89,48 +89,48 @@ export function DashboardContent({ guests, stats }: DashboardContentProps) {
                 <div className="p-6 lg:p-10 space-y-8 relative z-10">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex items-center gap-4">
-                      <div className="h-10 w-10 bg-teal-950 rounded-xl flex items-center justify-center shadow-lg transform -rotate-3">
+                      <div className="h-10 w-10 bg-navy-950 rounded-xl flex items-center justify-center shadow-lg transform -rotate-3">
                          <span className="font-heading text-lg text-gold-400 font-bold italic">G</span>
                       </div>
                       <div>
                         <h2 className="font-heading text-xl lg:text-3xl font-bold tracking-tight">
                           Guestbook <span className="text-gold-600 italic font-medium">Entries</span>
                         </h2>
-                        <p className="text-[8px] uppercase tracking-[0.4em] text-teal-950/30 font-bold mt-1">Total {stats.totalRsvp} Response</p>
+                        <p className="text-[8px] uppercase tracking-[0.4em] text-navy-950/30 font-bold mt-1">Total {stats.totalRsvp} Response</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 bg-teal-950/5 p-1 rounded-full px-3 py-1">
+                    <div className="flex items-center gap-2 bg-navy-950/5 p-1 rounded-full px-3 py-1">
                        <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-teal-950/40">Live Status</span>
+                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-navy-950/40">Live Status</span>
                     </div>
                   </div>
 
                   <div className="overflow-x-auto lg:overflow-visible">
-                    <div className="hidden md:block overflow-x-auto max-h-[600px] scrollbar-thin scrollbar-thumb-teal-900/5">
+                    <div className="hidden md:block overflow-x-auto max-h-[600px] scrollbar-thin scrollbar-thumb-navy-900/5">
                       <table className="w-full text-left border-collapse min-w-[700px]">
                         <thead className="sticky top-0 bg-white/95 backdrop-blur-md z-10">
-                          <tr className="border-b border-teal-900/5">
-                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold">Guest</th>
-                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold text-center">RSVP</th>
-                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold">Message</th>
-                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold text-right">Time</th>
-                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-teal-950/30 font-bold text-right">Action</th>
+                          <tr className="border-b border-navy-900/5">
+                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-navy-950/30 font-bold">Guest</th>
+                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-navy-950/30 font-bold text-center">RSVP</th>
+                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-navy-950/30 font-bold">Message</th>
+                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-navy-950/30 font-bold text-right">Time</th>
+                            <th className="p-3 px-6 text-[9px] uppercase tracking-[0.25em] text-navy-950/30 font-bold text-right">Action</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-teal-900/5">
+                        <tbody className="divide-y divide-navy-900/5">
                           {guests.length === 0 ? (
                             <tr>
-                              <td colSpan={5} className="p-24 text-center text-teal-950/20 italic text-sm">No entries found yet.</td>
+                              <td colSpan={5} className="p-24 text-center text-navy-950/20 italic text-sm">No entries found yet.</td>
                             </tr>
                           ) : (
                             guests.map((guest: Guest) => (
-                              <tr key={guest.id} className="hover:bg-sage-50/30 transition-all group">
+                              <tr key={guest.id} className="hover:bg-slate-50/30 transition-all group">
                                 <td className="p-3 px-6 align-middle">
                                   <div className="flex items-center gap-3">
-                                    <div className="h-8 w-8 rounded-lg bg-teal-950/80 flex items-center justify-center text-[10px] font-black text-gold-400 group-hover:rotate-12 transition-transform">
+                                    <div className="h-8 w-8 rounded-lg bg-navy-950/80 flex items-center justify-center text-[10px] font-black text-gold-400 group-hover:rotate-12 transition-transform">
                                       {guest.name.charAt(0).toUpperCase()}
                                     </div>
-                                    <span className="font-heading font-black text-teal-950 uppercase text-[11px] tracking-widest">{guest.name}</span>
+                                    <span className="font-heading font-black text-navy-950 uppercase text-[11px] tracking-widest">{guest.name}</span>
                                   </div>
                                 </td>
                                 <td className="p-3 px-6 text-center align-middle">
@@ -143,12 +143,12 @@ export function DashboardContent({ guests, stats }: DashboardContentProps) {
                                   </span>
                                 </td>
                                 <td className="p-3 px-6 align-middle">
-                                  <p className="text-teal-950/50 italic text-[11px] font-body max-w-[250px] truncate leading-relaxed group-hover:text-teal-950 transition-colors">
+                                  <p className="text-navy-950/50 italic text-[11px] font-body max-w-[250px] truncate leading-relaxed group-hover:text-navy-950 transition-colors">
                                     {guest.message || "-"}
                                   </p>
                                 </td>
                                 <td className="p-3 px-6 text-right text-[10px] whitespace-nowrap align-middle">
-                                  <span className="font-heading font-black text-teal-950/40 uppercase tracking-widest">{formatDate(guest.createdAt.toISOString())}</span>
+                                  <span className="font-heading font-black text-navy-950/40 uppercase tracking-widest">{formatDate(guest.createdAt.toISOString())}</span>
                                 </td>
                                 <td className="p-3 px-6 text-right align-middle opacity-0 group-hover:opacity-100 transition-opacity">
                                   <DeleteGuestbookButton id={guest.id} />
@@ -162,20 +162,20 @@ export function DashboardContent({ guests, stats }: DashboardContentProps) {
 
                     <div className="md:hidden space-y-4 pt-4">
                       {guests.length === 0 ? (
-                        <div className="p-10 text-center text-teal-950/20 italic text-xs uppercase tracking-widest">No entries found.</div>
+                        <div className="p-10 text-center text-navy-950/20 italic text-xs uppercase tracking-widest">No entries found.</div>
                       ) : (
                         guests.map((guest: Guest) => (
-                          <div key={guest.id} className="bg-white/50 border border-teal-900/5 p-4 rounded-2xl relative">
-                             <div className="flex items-center justify-between mb-3 border-b border-teal-900/5 pb-2">
+                          <div key={guest.id} className="bg-white/50 border border-navy-900/5 p-4 rounded-2xl relative">
+                             <div className="flex items-center justify-between mb-3 border-b border-navy-900/5 pb-2">
                                <div className="flex items-center gap-2">
-                                 <div className="h-6 w-6 rounded bg-teal-950 flex items-center justify-center text-[8px] font-black text-gold-400">
+                                 <div className="h-6 w-6 rounded bg-navy-950 flex items-center justify-center text-[8px] font-black text-gold-400">
                                    {guest.name.charAt(0).toUpperCase()}
                                  </div>
-                                 <span className="font-heading font-black text-teal-950 text-[10px] tracking-wider uppercase">{guest.name}</span>
+                                 <span className="font-heading font-black text-navy-950 text-[10px] tracking-wider uppercase">{guest.name}</span>
                                </div>
                                <DeleteGuestbookButton id={guest.id} />
                              </div>
-                             <p className="text-teal-950/60 italic text-[10px] font-body mb-3">{guest.message || "-"}</p>
+                             <p className="text-navy-950/60 italic text-[10px] font-body mb-3">{guest.message || "-"}</p>
                              <div className="flex items-center justify-between">
                                 <span className={`px-2 py-0.5 rounded text-[7px] font-black uppercase tracking-widest ${
                                   guest.attendance === "hadir" ? "bg-green-100 text-green-700" :
@@ -184,7 +184,7 @@ export function DashboardContent({ guests, stats }: DashboardContentProps) {
                                 }`}>
                                   {guest.attendance.replace("_", " ")}
                                 </span>
-                                <span className="text-[8px] font-bold text-teal-950/20 uppercase tracking-widest">{formatDate(guest.createdAt.toISOString())}</span>
+                                <span className="text-[8px] font-bold text-navy-950/20 uppercase tracking-widest">{formatDate(guest.createdAt.toISOString())}</span>
                              </div>
                           </div>
                         ))

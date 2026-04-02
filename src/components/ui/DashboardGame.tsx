@@ -122,9 +122,9 @@ export function DashboardGame({ onClose }: { onClose?: () => void }) {
   return (
     <div className="bg-white/60 backdrop-blur-xl rounded-3xl border border-gold-400/20 shadow-xl overflow-hidden relative flex flex-col">
       {/* Compact Header */}
-      <div className="p-4 px-6 border-b border-gold-400/10 flex items-center justify-between bg-gradient-to-r from-teal-950 to-teal-900 text-white relative z-10">
+      <div className="p-4 px-6 border-b border-gold-400/10 flex items-center justify-between bg-gradient-to-r from-navy-950 to-navy-900 text-white relative z-10">
         <div className="flex items-center gap-3">
-           <div className="h-8 w-8 bg-gold-400 text-teal-950 rounded-xl flex items-center justify-center shadow-lg transform rotate-3 text-sm">
+           <div className="h-8 w-8 bg-gold-400 text-navy-950 rounded-xl flex items-center justify-center shadow-lg transform rotate-3 text-sm">
              📚
            </div>
            <div>
@@ -167,15 +167,15 @@ export function DashboardGame({ onClose }: { onClose?: () => void }) {
             >
               <div className="mb-5 relative inline-block">
                  <div className="absolute inset-0 bg-gold-400/20 blur-2xl rounded-full scale-125" />
-                 <Image src="/images/couple-chibi.png" alt="Couple" width={110} height={110} className="relative z-10 drop-shadow-xl" />
+                 <Image src="/images/couple-chibi.png?v=3" alt="Couple" width={110} height={110} className="relative z-10 drop-shadow-xl" />
               </div>
-              <h5 className="font-heading text-xl font-bold text-teal-950 mb-2 uppercase tracking-tight">Kuis Wawasan Sakinah</h5>
-              <p className="text-teal-950/40 text-[9px] uppercase tracking-[0.2em] font-black mb-6 leading-relaxed max-w-[250px] mx-auto">
+              <h5 className="font-heading text-xl font-bold text-navy-950 mb-2 uppercase tracking-tight">Kuis Wawasan Sakinah</h5>
+              <p className="text-navy-950/40 text-[9px] uppercase tracking-[0.2em] font-black mb-6 leading-relaxed max-w-[250px] mx-auto">
                 10 Pertanyaan esensial tentang hak & tanggung jawab rumah tangga impian.
               </p>
               <button 
                 onClick={startQuiz}
-                className="group relative px-8 py-3 bg-teal-950 text-gold-400 rounded-xl font-heading font-black text-[10px] uppercase tracking-[0.2em] shadow-lg hover:bg-teal-900 transition-all active:scale-95"
+                className="group relative px-8 py-3 bg-navy-950 text-gold-400 rounded-xl font-heading font-black text-[10px] uppercase tracking-[0.2em] shadow-lg hover:bg-navy-900 transition-all active:scale-95"
               >
                 Mulai Kuis
                 <div className="absolute inset-0 border border-gold-400/20 rounded-xl scale-105 opacity-0 group-hover:opacity-100 transition-all" />
@@ -196,7 +196,7 @@ export function DashboardGame({ onClose }: { onClose?: () => void }) {
                 <span className="text-[9px] font-black text-gold-600 uppercase tracking-[0.3em] mb-2 block">
                   Soal {currentIdx + 1} <span className="opacity-40">/ {QUESTIONS.length}</span>
                 </span>
-                <h6 className="font-heading text-[15px] sm:text-base md:text-lg font-bold text-teal-950 leading-snug px-2 sm:px-0">
+                <h6 className="font-heading text-[15px] sm:text-base md:text-lg font-bold text-navy-950 leading-snug px-2 sm:px-0">
                    {QUESTIONS[currentIdx].question}
                 </h6>
               </div>
@@ -223,7 +223,7 @@ export function DashboardGame({ onClose }: { onClose?: () => void }) {
                       <div className={`h-6 w-6 rounded-lg flex items-center justify-center font-heading font-black text-[10px] shrink-0 transition-colors ${
                         showFeedback && isCorrect ? 'bg-green-500 text-white' : 
                         showFeedback && isSelected ? 'bg-red-500 text-white' : 
-                        'bg-teal-950/5 text-teal-950'
+                        'bg-navy-950/5 text-navy-950'
                       }`}>
                          {String.fromCharCode(65 + i)}
                       </div>
@@ -243,7 +243,7 @@ export function DashboardGame({ onClose }: { onClose?: () => void }) {
                       className="p-3 bg-gold-400/5 rounded-xl border border-gold-400/20 h-full flex flex-col justify-center"
                     >
                       <p className="text-[8px] font-black text-gold-600 uppercase tracking-widest mb-0.5">Penjelasan Singkat</p>
-                      <p className="text-[9px] text-teal-950/70 font-medium italic leading-snug line-clamp-2">{QUESTIONS[currentIdx].explanation}</p>
+                      <p className="text-[9px] text-navy-950/70 font-medium italic leading-snug line-clamp-2">{QUESTIONS[currentIdx].explanation}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -261,12 +261,12 @@ export function DashboardGame({ onClose }: { onClose?: () => void }) {
               <div className="mb-5 relative inline-block p-6 sm:p-8 bg-white/40 backdrop-blur-md rounded-full shadow-xl border border-gold-400/20">
                  <div className="absolute inset-0 bg-gold-400 animate-pulse-slow blur-[40px] opacity-20" />
                  <span className="text-4xl sm:text-5xl mb-2 sm:mb-3 block drop-shadow-sm">🎓</span>
-                 <p className="font-heading text-4xl sm:text-5xl font-black text-teal-950 leading-none">{score}</p>
-                 <p className="text-[8px] uppercase tracking-[0.3em] text-teal-950/40 font-black mt-2">Nilai Akhir</p>
+                 <p className="font-heading text-4xl sm:text-5xl font-black text-navy-950 leading-none">{score}</p>
+                 <p className="text-[8px] uppercase tracking-[0.3em] text-navy-950/40 font-black mt-2">Nilai Akhir</p>
               </div>
 
-              <h5 className="font-heading text-lg sm:text-xl font-bold text-teal-950 mb-2 uppercase tracking-tight">Kuis Selesai!</h5>
-              <p className="text-teal-950/50 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider mb-6 px-2 sm:px-4 leading-relaxed">
+              <h5 className="font-heading text-lg sm:text-xl font-bold text-navy-950 mb-2 uppercase tracking-tight">Kuis Selesai!</h5>
+              <p className="text-navy-950/50 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider mb-6 px-2 sm:px-4 leading-relaxed">
                  {score === 100 
                   ? "Sempurna! Anda Sangat Memahami Ilmu Pernikahan." 
                   : score >= 70 
@@ -277,14 +277,14 @@ export function DashboardGame({ onClose }: { onClose?: () => void }) {
               <div className="flex gap-3 justify-center">
                 <button 
                   onClick={startQuiz}
-                  className="px-6 py-2.5 bg-teal-950 text-gold-400 rounded-xl font-heading font-black text-[9px] uppercase tracking-widest shadow-md hover:bg-teal-900 transition-all"
+                  className="px-6 py-2.5 bg-navy-950 text-gold-400 rounded-xl font-heading font-black text-[9px] uppercase tracking-widest shadow-md hover:bg-navy-900 transition-all"
                 >
                   Ulangi Kuis
                 </button>
                 {onClose && (
                   <button 
                     onClick={onClose}
-                    className="px-6 py-2.5 bg-gold-400 text-teal-950 rounded-xl font-heading font-black text-[9px] uppercase tracking-widest shadow-md hover:bg-gold-500 transition-all"
+                    className="px-6 py-2.5 bg-gold-400 text-navy-950 rounded-xl font-heading font-black text-[9px] uppercase tracking-widest shadow-md hover:bg-gold-500 transition-all"
                   >
                     Tutup
                   </button>

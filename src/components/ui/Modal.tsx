@@ -14,10 +14,10 @@ export function Modal({ isOpen, onClose, children, className, hideCloseButton = 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-teal-900/40 backdrop-blur-sm transition-opacity duration-700 animate-fade-in">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-navy-900/40 backdrop-blur-sm transition-opacity duration-700 animate-fade-in">
       <div
         className={cn(
-          "w-[90%] max-w-lg bg-paper rounded-3xl p-10 relative overflow-hidden animate-fade-up border border-sage-200 shadow-2xl",
+          "w-[90%] max-w-lg bg-paper rounded-3xl p-10 relative overflow-hidden animate-fade-up border border-slate-200 shadow-2xl",
           className
         )}
       >
@@ -26,7 +26,7 @@ export function Modal({ isOpen, onClose, children, className, hideCloseButton = 
         {!hideCloseButton && onClose && (
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-teal-800/40 hover:text-teal-800 transition-colors z-10 p-2"
+            className="absolute top-6 right-6 text-navy-800/40 hover:text-navy-800 transition-colors z-10 p-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

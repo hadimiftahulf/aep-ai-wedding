@@ -37,7 +37,7 @@ export default async function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf8] font-body text-teal-950 selection:bg-gold-200 relative overflow-hidden pb-12">
+    <div className="min-h-screen bg-[#fafaf8] font-body text-navy-950 selection:bg-gold-200 relative overflow-hidden pb-12">
       {/* Premium Background Ornaments */}
       <div className="absolute top-0 right-0 w-full h-[600px] pointer-events-none opacity-[0.04]">
         <Image src="/images/luxury-floral.png" alt="" fill className="object-cover" />
@@ -47,7 +47,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* Top Accent Bar */}
-      <div className="h-1 bg-gradient-to-r from-teal-950 via-gold-500 to-teal-950 relative z-20" />
+      <div className="h-1 bg-gradient-to-r from-navy-950 via-gold-500 to-navy-950 relative z-20" />
 
       <div className="max-w-[1400px] mx-auto px-4 py-8 lg:px-10 lg:py-12 relative z-10">
         {/* Relocated PWA Button & Mascots Header */}
@@ -56,9 +56,9 @@ export default async function DashboardPage() {
             <DashboardMascots />
           </div>
           <div className="md:mb-6 shrink-0">
-            <div className="bg-teal-950/5 p-4 rounded-3xl border border-gold-400/20 backdrop-blur-sm shadow-xl animate-bounce-slow">
+            <div className="bg-navy-950/5 p-4 rounded-3xl border border-gold-400/20 backdrop-blur-sm shadow-xl animate-bounce-slow">
               <PWAInstallButton />
-              <p className="text-[7px] text-teal-950/30 uppercase font-black tracking-[0.3em] mt-3 text-center">Install Admin App for Best XP</p>
+              <p className="text-[7px] text-navy-950/30 uppercase font-black tracking-[0.3em] mt-3 text-center">Install Admin App for Best XP</p>
             </div>
           </div>
         </div>
@@ -67,34 +67,34 @@ export default async function DashboardPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Confirmed</p>
+              <p className="text-[10px] lowercase tracking-[0.2em] text-navy-950/40 font-black">Confirmed</p>
               <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
             </div>
             <div className="flex items-baseline gap-1">
-              <span className="text-3xl font-heading font-black text-teal-950 leading-none">{stats.attending}</span>
-              <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+              <span className="text-3xl font-heading font-black text-navy-950 leading-none">{stats.attending}</span>
+              <span className="text-[10px] font-bold text-navy-950/40 uppercase tracking-widest pl-1">Guest</span>
             </div>
           </div>
 
           <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Unable</p>
+              <p className="text-[10px] lowercase tracking-[0.2em] text-navy-950/40 font-black">Unable</p>
               <span className="h-1.5 w-1.5 rounded-full bg-red-400 opacity-60" />
             </div>
             <div className="flex items-baseline gap-1">
               <span className="text-3xl font-heading font-black text-gold-600 leading-none">{stats.notAttending}</span>
-              <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+              <span className="text-[10px] font-bold text-navy-950/40 uppercase tracking-widest pl-1">Guest</span>
             </div>
           </div>
 
           <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-gold-400/10 shadow-sm group hover:scale-[1.02] transition-all cursor-default">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-[10px] lowercase tracking-[0.2em] text-teal-950/40 font-black">Pending</p>
+              <p className="text-[10px] lowercase tracking-[0.2em] text-navy-950/40 font-black">Pending</p>
               <span className="h-1.5 w-1.5 rounded-full bg-gold-400 opacity-60" />
             </div>
             <div className="flex items-baseline gap-1">
-              <span className="text-3xl font-heading font-black text-teal-950/60 leading-none">{stats.tentative}</span>
-              <span className="text-[10px] font-bold text-teal-950/40 uppercase tracking-widest pl-1">Guest</span>
+              <span className="text-3xl font-heading font-black text-navy-950/60 leading-none">{stats.tentative}</span>
+              <span className="text-[10px] font-bold text-navy-950/40 uppercase tracking-widest pl-1">Guest</span>
             </div>
           </div>
         </div>
@@ -136,8 +136,8 @@ export default async function DashboardPage() {
       </div>
 
       <footer className="py-16 text-center mt-8 opacity-40">
-        <p className="text-[10px] tracking-[0.4em] text-teal-950 font-black uppercase">Crafted with Elegance by Saffteen</p>
-        <p className="text-[8px] tracking-[0.2em] text-teal-950/40 mt-2 uppercase">© 2026 Digital Hospitality Perfection</p>
+        <p className="text-[10px] tracking-[0.4em] text-navy-950 font-black uppercase">Crafted with Elegance by Saffteen</p>
+        <p className="text-[8px] tracking-[0.2em] text-navy-950/40 mt-2 uppercase">© 2026 Digital Hospitality Perfection</p>
       </footer>
     </div>
   );

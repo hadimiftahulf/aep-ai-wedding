@@ -4,21 +4,21 @@ import { CountdownTimer } from "@/components/ui/CountdownTimer";
 import { weddingData } from "@/data/wedding";
 import { motion } from "framer-motion";
 
+import { Card } from "@/components/ui/Card";
+
 export function Countdown() {
   return (
-    <SectionWrapper withOrnament className="py-16 md:py-32 text-center mx-4 my-16 md:my-24 max-w-4xl rounded-3xl bg-white relative overflow-hidden shadow-xl border border-sage-200">
-      
-      {/* Decorative inner border simulating premium cardstock */}
-      <div className="absolute top-3 bottom-3 left-3 right-3 border border-gold-400/30 rounded-2xl pointer-events-none" />
-
-      <motion.div variants={fadeUpVariant} className="relative z-10 flex flex-col items-center">
-        <h3 className="font-script text-5xl md:text-7xl text-teal-800 mb-6 font-medium drop-shadow-sm">
-          Menanti Hari Bahagia
-        </h3>
-        <p className="max-w-xl mx-auto text-teal-800/70 mb-12 leading-loose font-body text-sm px-6 italic">
-          Kehadiran serta doa restu Anda merupakan suatu kehormatan dan kebahagiaan yang tak terhingga bagi kami.
-        </p>
-        <CountdownTimer targetDate={weddingData.events.akad.date} />
+    <SectionWrapper withOrnament className="py-24 md:py-32 text-center relative z-10 px-4">
+      <motion.div variants={fadeUpVariant} className="max-w-4xl mx-auto w-full">
+        <Card glass className="flex flex-col items-center justify-center shadow-2xl py-16">
+          <h3 className="font-script text-5xl md:text-7xl text-navy-800 mb-6 font-medium drop-shadow-sm">
+            Menanti Hari Bahagia
+          </h3>
+          <p className="max-w-xl mx-auto text-navy-800/70 mb-12 leading-loose font-body text-sm px-6 italic">
+            Kehadiran serta doa restu Anda merupakan suatu kehormatan dan kebahagiaan yang tak terhingga bagi kami.
+          </p>
+          <CountdownTimer targetDate={weddingData.events.akad.date} />
+        </Card>
       </motion.div>
     </SectionWrapper>
   );

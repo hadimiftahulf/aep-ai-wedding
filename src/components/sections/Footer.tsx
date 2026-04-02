@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function Footer() {
   return (
-    <footer className="bg-teal-900 text-white py-24 px-6 text-center relative overflow-hidden">
+    <footer className="bg-navy-900 text-white py-24 px-6 text-center relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
       
       <motion.div 
@@ -51,25 +51,31 @@ export function Footer() {
           {weddingData.couple.bride.shortName}
         </motion.h3>
 
-        {weddingData.couple.groom.instagram && (
-          <motion.a 
-            href={`https://instagram.com/${weddingData.couple.groom.instagram.replace('@', '')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] } } }}
-            className="text-xs tracking-[0.2em] font-body text-gold-400 hover:text-white transition-colors mb-16 uppercase"
-          >
-            Instagram: {weddingData.couple.bride.instagram}
-          </motion.a>
-          <motion.a 
-            href={`https://instagram.com/${weddingData.couple.bride.instagram.replace('@', '')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] } } }}
-            className="text-xs tracking-[0.2em] font-body text-gold-400 hover:text-white transition-colors mb-16 uppercase"
-          >
-            Instagram: {weddingData.couple.bride.instagram}
-          </motion.a>
+        {(weddingData.couple.groom.instagram || weddingData.couple.bride.instagram) && (
+          <div className="flex flex-col md:flex-row gap-4 mb-16">
+            {weddingData.couple.groom.instagram && (
+              <motion.a 
+                href={`https://instagram.com/${weddingData.couple.groom.instagram.replace('@', '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] } } }}
+                className="text-xs tracking-[0.2em] font-body text-gold-400 hover:text-white transition-colors uppercase"
+              >
+                Groom IG: {weddingData.couple.groom.instagram}
+              </motion.a>
+            )}
+            {weddingData.couple.bride.instagram && (
+              <motion.a 
+                href={`https://instagram.com/${weddingData.couple.bride.instagram.replace('@', '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] } } }}
+                className="text-xs tracking-[0.2em] font-body text-gold-400 hover:text-white transition-colors uppercase"
+              >
+                Bride IG: {weddingData.couple.bride.instagram}
+              </motion.a>
+            )}
+          </div>
         )}
         
         <motion.p 

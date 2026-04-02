@@ -50,7 +50,7 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿`;
 
   if (!mounted) return (
     <Card className="p-6 bg-white/90 border-gold-200/50 shadow-2xl backdrop-blur-md animate-pulse">
-      <div className="h-40 flex items-center justify-center text-teal-950/20 italic text-xs">
+      <div className="h-40 flex items-center justify-center text-navy-950/20 italic text-xs">
         Loading generator...
       </div>
     </Card>
@@ -62,26 +62,26 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿`;
     <Card className="p-6 bg-white/90 border-gold-200/50 shadow-2xl backdrop-blur-md">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 bg-teal-900 text-gold-400 rounded-lg flex items-center justify-center shadow-inner">
+          <div className="h-9 w-9 bg-navy-900 text-gold-400 rounded-lg flex items-center justify-center shadow-inner">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </div>
           <div>
-            <h3 className="font-heading text-xl text-teal-950 font-bold leading-tight">WA Engine</h3>
-            <p className="text-[10px] text-teal-800/40 font-body tracking-[0.2em] font-bold uppercase">Invitation Generator</p>
+            <h3 className="font-heading text-xl text-navy-950 font-bold leading-tight">WA Engine</h3>
+            <p className="text-[10px] text-navy-800/40 font-body tracking-[0.2em] font-bold uppercase">Invitation Generator</p>
           </div>
         </div>
 
         {/* Mode Toggle */}
-        <div className="flex bg-teal-950/5 p-1 rounded-xl border border-teal-900/5 self-start sm:self-center">
+        <div className="flex bg-navy-950/5 p-1 rounded-xl border border-navy-900/5 self-start sm:self-center">
           <button 
             onClick={() => setMode("single")}
-            className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${mode === "single" ? "bg-white text-teal-950 shadow-sm" : "text-teal-950/40 hover:text-teal-950/60"}`}
+            className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${mode === "single" ? "bg-white text-navy-950 shadow-sm" : "text-navy-950/40 hover:text-navy-950/60"}`}
           >
             Single
           </button>
           <button 
             onClick={() => setMode("bulk")}
-            className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${mode === "bulk" ? "bg-white text-teal-950 shadow-sm" : "text-teal-950/40 hover:text-teal-950/60"}`}
+            className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${mode === "bulk" ? "bg-white text-navy-950 shadow-sm" : "text-navy-950/40 hover:text-navy-950/60"}`}
           >
             Bulk List
           </button>
@@ -98,19 +98,19 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿`;
             className="space-y-4"
           >
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-teal-950/60 mb-1.5 ml-1">Nama Tamu</label>
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-navy-950/60 mb-1.5 ml-1">Nama Tamu</label>
               <input 
                 type="text" 
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Ketik nama tamu..."
-                className="w-full px-4 py-2.5 rounded-xl border border-teal-900/5 bg-sage-50/30 text-teal-950 focus:ring-2 focus:ring-gold-400/50 outline-none transition-all placeholder:text-teal-950/20 font-body text-sm shadow-sm"
+                className="w-full px-4 py-2.5 rounded-xl border border-navy-900/5 bg-slate-50/30 text-navy-950 focus:ring-2 focus:ring-gold-400/50 outline-none transition-all placeholder:text-navy-950/20 font-body text-sm shadow-sm"
               />
             </div>
 
-            <div className="bg-gradient-to-br from-sage-50 to-white rounded-xl p-4 border border-teal-900/5 shadow-inner">
-              <label className="block text-[9px] font-bold uppercase tracking-widest text-teal-950/30 mb-2">Message Preview</label>
-              <div className="text-[11px] text-teal-950/70 leading-relaxed font-body whitespace-pre-line max-h-32 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-teal-900/10 italic">
+            <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 border border-navy-900/5 shadow-inner">
+              <label className="block text-[9px] font-bold uppercase tracking-widest text-navy-950/30 mb-2">Message Preview</label>
+              <div className="text-[11px] text-navy-950/70 leading-relaxed font-body whitespace-pre-line max-h-32 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-navy-900/10 italic">
                 {getMessageTemplate(name)}
               </div>
             </div>
@@ -118,13 +118,13 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿`;
             <div className="grid grid-cols-2 gap-2 pt-1">
               <button 
                 onClick={() => copyToClipboard(generateUrl(name), "Link Undangan")}
-                className="text-[10px] font-bold uppercase tracking-widest py-2 rounded-lg border border-teal-900/10 text-teal-950/60 hover:bg-teal-50 transition-colors"
+                className="text-[10px] font-bold uppercase tracking-widest py-2 rounded-lg border border-navy-900/10 text-navy-950/60 hover:bg-navy-50 transition-colors"
               >
                 Copy Link
               </button>
               <button 
                 onClick={() => copyToClipboard(getMessageTemplate(name), "Pesan WhatsApp")}
-                className="text-[10px] font-bold uppercase tracking-widest py-2 rounded-lg border border-teal-900/10 text-teal-950/60 hover:bg-teal-50 transition-colors"
+                className="text-[10px] font-bold uppercase tracking-widest py-2 rounded-lg border border-navy-900/10 text-navy-950/60 hover:bg-navy-50 transition-colors"
               >
                 Copy Text
               </button>
@@ -146,29 +146,29 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿`;
             className="space-y-4"
           >
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-teal-950/60 mb-1.5 ml-1">Daftar Nama (Satu baris satu nama)</label>
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-navy-950/60 mb-1.5 ml-1">Daftar Nama (Satu baris satu nama)</label>
               <textarea 
                 rows={5}
                 value={bulkNames}
                 onChange={(e) => setBulkNames(e.target.value)}
                 placeholder="Contoh:&#10;Budi Santoso&#10;Siti Aminah&#10;Agus Pratama"
-                className="w-full px-4 py-2.5 rounded-xl border border-teal-900/5 bg-sage-50/30 text-teal-950 focus:ring-2 focus:ring-gold-400/50 outline-none transition-all placeholder:text-teal-950/20 font-body text-sm shadow-sm resize-none"
+                className="w-full px-4 py-2.5 rounded-xl border border-navy-900/5 bg-slate-50/30 text-navy-950 focus:ring-2 focus:ring-gold-400/50 outline-none transition-all placeholder:text-navy-950/20 font-body text-sm shadow-sm resize-none"
               />
             </div>
 
             {bulkNamesList.length > 0 && (
-              <div className="space-y-2 mt-4 max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-teal-900/10">
-                <p className="text-[9px] font-black uppercase tracking-widest text-teal-950/30 mb-2 ml-1">Generated Links ({bulkNamesList.length})</p>
+              <div className="space-y-2 mt-4 max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-navy-900/10">
+                <p className="text-[9px] font-black uppercase tracking-widest text-navy-950/30 mb-2 ml-1">Generated Links ({bulkNamesList.length})</p>
                 {bulkNamesList.map((n, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 bg-white border border-teal-900/5 rounded-xl hover:border-gold-400/30 transition-all group">
+                  <div key={i} className="flex items-center justify-between p-3 bg-white border border-navy-900/5 rounded-xl hover:border-gold-400/30 transition-all group">
                     <div className="flex flex-col">
-                      <span className="text-[11px] font-heading font-black text-teal-950 uppercase tracking-wider">{n}</span>
-                      <span className="text-[8px] text-teal-950/30 font-bold truncate max-w-[150px]">{generateUrl(n)}</span>
+                      <span className="text-[11px] font-heading font-black text-navy-950 uppercase tracking-wider">{n}</span>
+                      <span className="text-[8px] text-navy-950/30 font-bold truncate max-w-[150px]">{generateUrl(n)}</span>
                     </div>
                     <div className="flex gap-2">
                        <button 
                         onClick={() => copyToClipboard(generateUrl(n), `Link untuk ${n}`)}
-                        className="p-2 bg-teal-950/5 text-teal-950/40 rounded-lg hover:text-teal-950 hover:bg-gold-400/20 transition-all"
+                        className="p-2 bg-navy-950/5 text-navy-950/40 rounded-lg hover:text-navy-950 hover:bg-gold-400/20 transition-all"
                         title="Copy Link"
                       >
                         <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
@@ -189,8 +189,8 @@ Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿`;
         )}
       </AnimatePresence>
 
-      <div className="mt-8 pt-4 border-t border-teal-950/5 flex items-center justify-between">
-        <p className="text-[8px] text-teal-950/20 uppercase font-black tracking-widest">Aep-Ai Messaging System v2.0</p>
+      <div className="mt-8 pt-4 border-t border-navy-950/5 flex items-center justify-between">
+        <p className="text-[8px] text-navy-950/20 uppercase font-black tracking-widest">Aep-Ai Messaging System v2.0</p>
         <div className="flex gap-1">
            <span className="h-1 w-1 rounded-full bg-gold-400" />
            <span className="h-1 w-1 rounded-full bg-gold-400 opacity-40" />

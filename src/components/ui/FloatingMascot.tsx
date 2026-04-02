@@ -10,7 +10,7 @@ interface Pose {
 
 const POSES: Pose[] = [
   {
-    src: "/images/couple-wave.png",
+    src: "/images/couple-wave.png?v=3",
     messages: [
       "Hai! Jangan lupa datang ya! 👋",
       "Halo! Senang kamu buka undangan ini! 😊",
@@ -18,7 +18,7 @@ const POSES: Pose[] = [
     ],
   },
   {
-    src: "/images/couple-heart.png",
+    src: "/images/couple-heart.png?v=3",
     messages: [
       "Doa kalian sangat berarti bagi kami 💖",
       "Jazakallahu Khairan! 🤲",
@@ -26,7 +26,7 @@ const POSES: Pose[] = [
     ],
   },
   {
-    src: "/images/couple-pray.png",
+    src: "/images/couple-pray.png?v=3",
     messages: [
       "Mohon doanya ya! 🤲",
       "Bismillah, semoga lancar! ✨",
@@ -34,7 +34,7 @@ const POSES: Pose[] = [
     ],
   },
   {
-    src: "/images/couple-chibi.png?v=2",
+    src: "/images/couple-chibi.png?v=3",
     messages: [
       "Scroll terus ya, jangan lupa RSVP! 📝",
       "Sudah save tanggalnya belum? 📅",
@@ -115,7 +115,7 @@ export function FloatingMascot() {
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
             className="bg-white/95 backdrop-blur-lg border border-gold-300 rounded-2xl rounded-br-sm shadow-xl px-4 py-3 max-w-[200px] md:max-w-[240px] mr-2"
           >
-            <p className="font-body text-xs md:text-sm text-teal-900 leading-relaxed">{msg}</p>
+            <p className="font-body text-xs md:text-sm text-navy-900 leading-relaxed">{msg}</p>
             {/* Bubble tail */}
             <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-white/95 border-b border-r border-gold-300 rotate-45" />
           </motion.div>
@@ -138,7 +138,7 @@ export function FloatingMascot() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               onClick={handleClose}
-              className="absolute -top-1 -left-1 w-5 h-5 bg-teal-800/80 text-white rounded-full flex items-center justify-center text-[10px] font-bold z-30 hover:bg-teal-700"
+              className="absolute -top-1 -left-1 w-5 h-5 bg-navy-800/80 text-white rounded-full flex items-center justify-center text-[10px] font-bold z-30 hover:bg-navy-700"
             >
               ✕
             </motion.button>

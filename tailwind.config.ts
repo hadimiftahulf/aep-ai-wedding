@@ -7,24 +7,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        sage: {
-          50: '#f5f9f7',
-          100: '#e1eeea',
-          200: '#c2ddd5',
-          300: '#9ec4b9',
-          400: '#79a89c',
-          500: '#5c8c80',
+        slate: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
         },
-        teal: {
-          600: '#2b6b66',
-          700: '#215450',
-          800: '#1a4441',
-          900: '#153633',
+        navy: {
+          600: '#1e3a5f',
+          700: '#172e4b',
+          800: '#102237',
+          900: '#0a1524',
+          950: '#060c15',
         },
         gold: {
           300: '#ead28a',
           400: '#dfbc5c',
-          500: '#ce9f35', // Approximating the rich gold from the bag
+          500: '#ce9f35', 
           600: '#af8026',
         },
         paper: '#fcfdfd',
@@ -35,7 +36,7 @@ const config: Config = {
         body: ['var(--font-inter)', 'sans-serif'],
       },
       backgroundImage: {
-        'watercolor-gradient': 'radial-gradient(circle at top right, rgba(158, 196, 185, 0.2), transparent 40%), radial-gradient(circle at bottom left, rgba(158, 196, 185, 0.2), transparent 40%)',
+        'watercolor-gradient': 'radial-gradient(circle at top right, rgba(30, 58, 95, 0.1), transparent 40%), radial-gradient(circle at bottom left, rgba(30, 58, 95, 0.1), transparent 40%)',
         'gold-shimmer': 'linear-gradient(135deg, #dfbc5c 0%, #ce9f35 50%, #af8026 100%)',
         'luxury-floral': 'url("/images/luxury-floral.png")',
         'gold-texture': 'url("/images/gold-texture.png")',

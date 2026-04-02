@@ -38,7 +38,7 @@ export function MusicPlayer({ isPlaying: forcePlay }: { isPlaying?: boolean }) {
       <button
         onClick={togglePlay}
         className={cn(
-          "fixed bottom-8 left-8 z-50 w-14 h-14 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-gold-300 text-teal-800 shadow-xl transition-all hover:scale-110 focus:outline-none",
+          "fixed bottom-8 left-8 z-50 w-14 h-14 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-gold-300 text-navy-800 shadow-xl transition-all hover:scale-110 focus:outline-none",
           isPlaying ? "animate-pulse-slow" : "opacity-80"
         )}
         aria-label="Play/Pause Music"

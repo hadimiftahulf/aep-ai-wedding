@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.svg",
-    apple: "/images/couple-chibi.png",
+    apple: "/images/couple-chibi.png?v=3",
   },
 };
 
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body
-        className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} font-body bg-paper text-teal-900 antialiased selection:bg-teal-800 selection:text-white relative overflow-x-hidden`}
+        className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} font-body bg-paper text-navy-900 antialiased selection:bg-navy-800 selection:text-white relative overflow-x-hidden`}
       >
         {/* Global base textures */}
         <div className="fixed inset-0 pointer-events-none -z-50 bg-watercolor-gradient"></div>

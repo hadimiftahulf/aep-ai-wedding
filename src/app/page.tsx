@@ -32,7 +32,13 @@ function HomeContent() {
   }, []);
 
   return (
-    <main className="min-h-screen relative w-full overflow-x-hidden bg-cream">
+    <main className="min-h-screen relative w-full overflow-x-hidden bg-[#FAFAF8]">
+      
+      {/* 3D Ambient Parallax Orbs (Fixed Deep Background) */}
+      <div className="fixed top-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-navy-900/[0.03] blur-[100px] pointer-events-none z-0" />
+      <div className="fixed bottom-[-10%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-gold-400/[0.05] blur-[120px] pointer-events-none z-0" />
+      <div className="fixed top-[40%] left-[20%] w-[40vw] h-[40vw] rounded-full bg-navy-900/[0.02] blur-[80px] pointer-events-none z-0" />
+
       {/* Confetti on open */}
       <ConfettiBurst trigger={showConfetti} />
 
@@ -45,10 +51,10 @@ function HomeContent() {
       {/* Hero Cover overlay */}
       <HeroCover onOpen={handleOpen} guestName={guestName} />
       
-      {/* Main Content (Hidden until opened) */}
+      {/* Main Content */}
       <div 
-        className={`transition-opacity duration-1000 ease-in-out w-full flex flex-col items-center ${
-          isOpened ? "opacity-100" : "opacity-0 h-screen overflow-hidden"
+        className={`w-full flex-col items-center ${
+          isOpened ? "flex" : "hidden"
         }`}
       >
         <BismillahVerse />

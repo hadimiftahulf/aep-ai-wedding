@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --background: theme('colors.paper');
-    --foreground: theme('colors.teal.900');
+    --foreground: theme('colors.navy.900');
   }
 
   html { scroll-behavior: smooth; }
@@ -30,29 +30,46 @@
     background: theme('backgroundImage.gold-shimmer');
   }
 
-  /* Ornate frame utility matching the image */
+  /* Modern Futuristic Islamic Arch utility */
   .vintage-frame {
     position: relative;
-    padding: 2rem;
-    background-color: theme('colors.teal.800');
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(21, 54, 51, 0.3);
+    padding: 1.5rem;
+    background-color: rgba(6, 12, 21, 0.4); /* navy-950 with opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    /* Perfect architectural Dome Arch */
+    border-top-left-radius: 50% 160px;
+    border-top-right-radius: 50% 160px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 10px 40px rgba(10, 21, 36, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.03);
+    transition: all 0.5s ease;
   }
   
   .vintage-frame::before {
     content: '';
     position: absolute;
-    inset: 8px;
-    border: 2px solid theme('colors.gold.400');
-    border-radius: 12px;
+    inset: 6px;
+    border: 1px solid rgba(206, 159, 53, 0.4); /* Elegant glowing gold */
+    border-top-left-radius: 50% 154px;
+    border-top-right-radius: 50% 154px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     pointer-events: none;
+    box-shadow: inset 0 0 15px rgba(206, 159, 53, 0.1);
   }
   
   .vintage-frame-inner {
     background: theme('backgroundImage.gold-shimmer');
-    border-radius: 50%; /* Oval */
-    padding: 2rem;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+    border-top-left-radius: 50% 148px;
+    border-top-right-radius: 50% 148px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 1rem;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
   }
   .animate-pulse-slow {
     animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;

@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const PETAL_EMOJIS = ["🌸", "🍃", "✨", "🌿", "💐"];
-const PETAL_COUNT = 15;
+const PETAL_EMOJIS = ["✨", "✦", "✧", "⋆", "✴", "✨"];
+const PETAL_COUNT = 25;
 
 interface Petal {
   id: number;
@@ -32,7 +32,7 @@ export function FallingPetals() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[60] overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {petals.map((p) => (
         <motion.span
           key={p.id}
@@ -49,7 +49,7 @@ export function FallingPetals() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-0"
+          className="absolute top-0 text-gold-400 drop-shadow-[0_0_8px_rgba(206,159,53,0.5)] z-0"
           style={{ left: `${p.left}%`, fontSize: p.size }}
         >
           {p.emoji}

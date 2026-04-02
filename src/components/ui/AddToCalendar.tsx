@@ -59,18 +59,18 @@ export function AddToCalendar() {
         href={googleUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group inline-flex items-center gap-3 px-8 py-3.5 bg-white border border-sage-200 rounded-2xl shadow-md hover:shadow-xl hover:border-gold-400 transition-all duration-500 font-body text-sm text-teal-900"
+        className="group inline-flex items-center gap-3 px-8 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-md hover:shadow-xl hover:border-gold-400 transition-all duration-500 font-body text-sm text-navy-900"
       >
-        <svg viewBox="0 0 24 24" className="w-5 h-5 text-teal-800 group-hover:text-gold-500 transition-colors" fill="currentColor">
+        <svg viewBox="0 0 24 24" className="w-5 h-5 text-navy-800 group-hover:text-gold-500 transition-colors" fill="currentColor">
           <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z" />
         </svg>
         Google Calendar
       </a>
       <button
         onClick={handleICS}
-        className="group inline-flex items-center gap-3 px-8 py-3.5 bg-white border border-sage-200 rounded-2xl shadow-md hover:shadow-xl hover:border-gold-400 transition-all duration-500 font-body text-sm text-teal-900"
+        className="group inline-flex items-center gap-3 px-8 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-md hover:shadow-xl hover:border-gold-400 transition-all duration-500 font-body text-sm text-navy-900"
       >
-        <svg viewBox="0 0 24 24" className="w-5 h-5 text-teal-800 group-hover:text-gold-500 transition-colors" fill="currentColor">
+        <svg viewBox="0 0 24 24" className="w-5 h-5 text-navy-800 group-hover:text-gold-500 transition-colors" fill="currentColor">
           <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 002 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z" />
         </svg>
         Apple / iCal
