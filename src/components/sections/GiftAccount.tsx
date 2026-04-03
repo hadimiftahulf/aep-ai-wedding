@@ -4,15 +4,43 @@ import { SectionWrapper, fadeUpVariant } from "@/components/ui/SectionWrapper";
 import { Card } from "@/components/ui/Card";
 import { weddingData } from "@/data/wedding";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export function GiftAccount() {
   const [copied, setCopied] = useState<string | null>(null);
 
-  const handleCopy = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(text);
-    setTimeout(() => setCopied(null), 2000);
+  const handleCopy = async (text: string) => {
+    try {
+      // Modern browsers
+      if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fallback for in-app browsers (e.g., WhatsApp, Instagram) and older iOS devices
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        
+        // Prevent scrolling and rendering offscreen safely
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        
+        textArea.focus();
+        textArea.select();
+        
+        try {
+          document.execCommand('copy');
+        } catch (err) {
+          console.error("Fallback copy failed", err);
+        }
+        
+        textArea.remove();
+      }
+      
+      setCopied(text);
+      setTimeout(() => setCopied(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
   };
 
   return (
@@ -30,11 +58,11 @@ export function GiftAccount() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto w-full">
         {weddingData.banks.map((bank, i) => (
           <motion.div variants={fadeUpVariant} key={i} className="group flex-1">
-            <Card glass className="h-full flex flex-col items-center text-center shadow-2xl hover:-translate-y-2 transition-transform duration-700">
+            <Card glass enable3D={false} className="h-full flex flex-col items-center text-center shadow-2xl hover:-translate-y-2 transition-transform duration-700">
               
               {/* Subtle Luxury Pattern Overlays */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-gold-400/10 transition-colors" />
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-navy-900/5 rounded-full -ml-12 -mb-12 blur-xl" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-gold-400/10 transition-colors pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-navy-900/5 rounded-full -ml-12 -mb-12 blur-xl pointer-events-none" />
 
               {/* Bank Identity */}
               <div className="mb-10 relative flex flex-col items-center">
@@ -61,8 +89,9 @@ export function GiftAccount() {
                       {bank.account}
                     </p>
                     <button
+                      type="button"
                       onClick={() => handleCopy(bank.account)}
-                      className={`inline-flex items-center gap-2 px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 ${
+                      className={`relative z-50 cursor-pointer inline-flex items-center gap-2 px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 ${
                         copied === bank.account 
                         ? 'bg-gold-600 text-white shadow-lg' 
                         : 'bg-navy-950 text-gold-400 hover:bg-navy-900 shadow-md'
@@ -86,21 +115,6 @@ export function GiftAccount() {
                     </button>
                   </div>
                 </div>
-              </div>
-
-              {/* QR Code Frame */}
-              <div className="mt-12 pt-10 border-t border-navy-900/5 w-full flex flex-col items-center">
-                 <div className="relative p-4 bg-white rounded-[2rem] shadow-inner mb-4 overflow-hidden group/qr">
-                    <div className="absolute inset-0 bg-gold-400/5 opacity-0 group-hover/qr:opacity-100 transition-opacity" />
-                    <Image 
-                      src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(bank.account)}&bgcolor=FFFFFF&color=1A4441&margin=4`}
-                      alt={`QR ${bank.name}`}
-                      width={120}
-                      height={120}
-                      className="relative z-10 mix-blend-multiply transition-transform duration-500 group-hover/qr:scale-110"
-                    />
-                 </div>
-                 <p className="text-[10px] uppercase tracking-[0.2em] text-navy-950/20 font-bold italic">Simpan QR Code</p>
               </div>
 
             </Card>
