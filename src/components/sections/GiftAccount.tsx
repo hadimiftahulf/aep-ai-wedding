@@ -89,7 +89,7 @@ export function GiftAccount() {
               </div>
 
               {/* QR Code Frame */}
-              {/* <div className="mt-12 pt-10 border-t border-navy-900/5 w-full flex flex-col items-center">
+              <div className="mt-12 pt-10 border-t border-navy-900/5 w-full flex flex-col items-center">
                  <div className="relative p-4 bg-white rounded-[2rem] shadow-inner mb-4 overflow-hidden group/qr">
                     <div className="absolute inset-0 bg-gold-400/5 opacity-0 group-hover/qr:opacity-100 transition-opacity" />
                     <Image 
@@ -101,7 +101,7 @@ export function GiftAccount() {
                     />
                  </div>
                  <p className="text-[10px] uppercase tracking-[0.2em] text-navy-950/20 font-bold italic">Simpan QR Code</p>
-              </div> */}
+              </div>
 
             </Card>
           </motion.div>
