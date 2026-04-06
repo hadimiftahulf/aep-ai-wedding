@@ -133,7 +133,7 @@ function PortraitCard({
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.04 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="w-64 h-[22rem] md:w-80 md:h-[28rem] relative cursor-pointer group select-none drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] mb-8 isolate mt-4"
+        className="w-64 md:w-80 aspect-square relative cursor-pointer group select-none drop-shadow-[0_25px_35px_rgba(20,30,60,0.15)] mb-8 isolate mt-4"
       >
 
         {/* Sparkle particles floating around the edge */}
