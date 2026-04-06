@@ -65,7 +65,7 @@ export function RsvpWishes() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 text-left px-6 relative z-10 max-w-5xl mx-auto">
         {/* Form */}
         <motion.div variants={fadeUpVariant} className="self-start">
-          <Card glass className="shadow-xl">
+          <Card glass className="shadow-xl" enable3D={false}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-xs font-body uppercase tracking-[0.2em] text-navy-800/80 font-bold mb-2 ml-1">Nama Lengkap</label>
@@ -121,7 +121,7 @@ export function RsvpWishes() {
 
         {/* Messages List */}
         <motion.div variants={fadeUpVariant} className="h-full flex-1 min-h-[400px]">
-          <Card glass className="flex flex-col h-full shadow-2xl">
+          <Card glass className="flex flex-col h-full shadow-2xl" enable3D={false}>
           <div className="flex items-center justify-between mb-8 pb-5 border-b border-navy-800/10">
              <h4 className="font-heading text-2xl md:text-3xl text-gold-600 font-medium italic">
                Ucapan Masuk
@@ -144,7 +144,7 @@ export function RsvpWishes() {
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="group relative relative z-10/20 p-3 md:p-4 rounded-xl border border-navy-800/5 hover:relative z-10/50 transition-colors duration-500"
+                    className="group relative z-10 p-3 md:p-4 rounded-xl border border-navy-800/5 hover:relative hover:z-20 transition-colors duration-500"
                   >
                     <div className="flex items-center justify-between gap-3 mb-1.5">
                       <div className="flex items-center gap-2">
