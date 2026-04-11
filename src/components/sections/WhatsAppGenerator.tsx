@@ -23,18 +23,35 @@ export function WhatsAppGenerator() {
 
   const getMessageTemplate = (targetName: string) => `Assalamu'alaikum Warahmatullahi Wabarakatuh. ✨
 
-Tanpa mengurangi rasa hormat, izinkan kami mengundang Bapak/Ibu/Saudara/i *${targetName || "[Nama Tamu]"}* untuk hadir di hari bahagia kami:
+Yth *${targetName || "[Nama Tamu]"}*
+ditempat
 
-💍 *PERNIKAHAN ${weddingData.couple.groom.shortName.toUpperCase()} & ${weddingData.couple.bride.shortName.toUpperCase()}* 💍
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, untuk menghadiri acara Resepsi Pernikahan Kami yang berbahagia:
+
+💍 * ${weddingData.couple.groom.shortName.toUpperCase()} & ${weddingData.couple.bride.shortName.toUpperCase()}* 💍
+Hari/Tanggal: Sabtu, 18 April 2026
+Waktu: 12.00 WIB - 19.00 WIB
+Tempat: Kp. Sukaresmi Rt. 03 Rw. 01 Desa. Selagedang Kec. Pagelaran Kab. Cianjur
 
 Berikut adalah link undangan digital kami, untuk informasi lengkap mengenai acara silakan kunjungi:
 
 🌐 ${generateUrl(targetName)}
 
-Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu. 🙏❤️
+Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu. 🙏
+
+Kami yang berbahagia
+Keluarga Kedua Mempelai
+
+Mohon maaf, perihal undangan hanya dibagikan melalui pesan ini. 
+
+Terima kasih banyak atas perhatiannya.
 
 Terima kasih.
-Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿`;
+Wassalamu'alaikum Warahmatullahi Wabarakatuh. 🌿
+Hormat kami, 
+Ai Rosita & Aep Saepudin
+_____`    
+    ;
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
